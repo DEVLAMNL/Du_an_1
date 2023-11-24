@@ -31,7 +31,7 @@ public class NhanVien extends javax.swing.JFrame {
     }
 
     public viewmodels.NhanVien Data() {
-
+        System.out.println("Hihi");
         String Ma = txtMa.getText();
         String Ten = txtTen.getText();
         Boolean GioiTinh = rdbNam.isSelected();
