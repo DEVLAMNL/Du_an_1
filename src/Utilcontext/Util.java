@@ -43,5 +43,6 @@ public class Util {
 
     public static void main(String[] args) {
         System.out.println(getConnection());
+        System.out.println("Hello");
     }
 }
