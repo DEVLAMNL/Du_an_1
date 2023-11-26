@@ -97,23 +97,12 @@
                               <Component id="lbNgayBatDau" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
                               <Component id="lbNgayKetThuc" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="DCNgayBatDau" max="32767" attributes="0"/>
-                                      <Component id="DCNgayKetThuc" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cbbLoaiGiamGia" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cbbMucGiamGia" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="cbbLoaiGiamGia" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbbMucGiamGia" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -193,15 +182,9 @@
                       <Component id="cbbLoaiGiamGia" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lbNgayBatDau" min="-2" max="-2" attributes="0"/>
-                      <Component id="DCNgayBatDau" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lbNgayKetThuc" min="-2" max="-2" attributes="0"/>
-                      <Component id="DCNgayKetThuc" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="lbNgayBatDau" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="lbNgayKetThuc" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbTrangthai" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -311,10 +294,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMa">
-        </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="DCNgayBatDau">
-        </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="DCNgayKetThuc">
         </Component>
         <Component class="javax.swing.JButton" name="btnExit">
           <Properties>
