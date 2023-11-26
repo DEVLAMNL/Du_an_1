@@ -4,21 +4,16 @@
  */
 package service;
 
-import viewmodels.NhanVien;
 import java.util.ArrayList;
+import viewmodels.HoaDonViewModel;
 
 /**
  *
  * @author Admin
  */
-public interface INhanVien_Service  {
-    
-    public void Insert(NhanVien nv);
+public interface IHoaDon_Service {
 
-    public void Update(String Id,  NhanVien nv);
+    public ArrayList<HoaDonViewModel> getAll();
 
-    public void Delete(String Id);
-
-    public ArrayList<NhanVien> getAll();
-
+    public void insert(HoaDonViewModel hd);
 }
