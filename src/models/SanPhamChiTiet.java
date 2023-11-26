@@ -3,19 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package models;
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> d829542db56b4877333bacef154582df38d00afb
 /**
  *
  * @author admin
  */
 public class SanPhamChiTiet {
     private int IdSanPhamChiTiet;
-<<<<<<< HEAD
     private SanPham sanPham;
     private KichThuoc kichThuoc;
     private ChatLieu chatLieu;
@@ -36,21 +29,6 @@ public class SanPhamChiTiet {
         this.IdSanPhamChiTiet = IdSanPhamChiTiet;
     }
     
-
-=======
-    
-    private KichThuoc kichThuoc;
-    private ChatLieu chatLieu;
-    private MauSac mauSac;
-    private SanPham sanPham;
-    
-    private int soLuong;
-    private float giaBan;
-
-    public SanPhamChiTiet() {
-    }
-
->>>>>>> d829542db56b4877333bacef154582df38d00afb
     public SanPhamChiTiet(KichThuoc kichThuoc, ChatLieu chatLieu, MauSac mauSac, SanPham sanPham, int soLuong, float giaBan) {
         this.kichThuoc = kichThuoc;
         this.chatLieu = chatLieu;

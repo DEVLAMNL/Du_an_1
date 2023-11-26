@@ -3,12 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package models;
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> d829542db56b4877333bacef154582df38d00afb
 /**
  *
  * @author admin

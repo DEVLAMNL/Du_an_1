@@ -4,7 +4,6 @@
  */
 package models;
 
-<<<<<<< HEAD
 
 import java.util.Date;
 
@@ -77,20 +76,4 @@ public class HoaDon {
     public void setNgayTao(Date ngayTao) {
         this.ngayTao = ngayTao;
     }
-=======
-/**
- *
- * @author admin
- */
-public class HoaDon {
-    private int idHoaDon;
-    //private NhanVien nhanVien;
-    //private KhachHang khachHang;
-    //private PhieuGiamGia phieuGiamGia;
-    //private PhieuGiao phieuGiao;
-    private String maHoaDon;
-    private String ngayTao;
-    private String tinhTrang;
->>>>>>> d829542db56b4877333bacef154582df38d00afb
-    
 }
