@@ -137,7 +137,7 @@ public class PhieuDoiServiceImpl implements PhieuDoiService {
                 ChatLieu cl = new ChatLieu(tenChatLieu);
                 MauSac ms = new MauSac(tenMauSac);
 
-                SanPhamChiTiet spct = new SanPhamChiTiet(idSanPhamCT, kt, cl, ms, sp, idSanPhamCT, idSanPhamCT);
+                SanPhamChiTiet spct = new SanPhamChiTiet(idSanPhamCT, sp, kt, cl, ms);
                 list.add(spct);
             }
         } catch (SQLException e) {

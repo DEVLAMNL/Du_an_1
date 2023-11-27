@@ -314,7 +314,7 @@ public class QuanLySanPham extends javax.swing.JFrame {
             MauSac mauSac = listcbbMauSac.get(cbbMauSacSP.getSelectedIndex());
             SanPham sanPham = listcbbSanPham.get(cbbTenSP.getSelectedIndex());
 
-            SanPhamChiTiet spct = new SanPhamChiTiet(kichThuoc, chatLieu, mauSac, sanPham, soLuong, giaBan);
+            SanPhamChiTiet spct = new SanPhamChiTiet(ICONIFIED, sanPham, kichThuoc, chatLieu, mauSac, soLuong, giaBan);
             return spct;
         } catch (NumberFormatException e) {
             e.printStackTrace();
@@ -1593,7 +1593,7 @@ public class QuanLySanPham extends javax.swing.JFrame {
         MauSac mauSac = listcbbMauSac.get(cbbMauSacSP.getSelectedIndex());
         SanPham sanPham = listcbbSanPham.get(cbbTenSP.getSelectedIndex());
 
-        SanPhamChiTiet spct = new SanPhamChiTiet(kichThuoc, chatLieu, mauSac, sanPham, soLuong, giaBan);
+        SanPhamChiTiet spct = new SanPhamChiTiet();
         if (spct != null) {
             serviceSanPhamChiTiet.insertSanPhamCT(spct);
             loadTableQLSPCT();

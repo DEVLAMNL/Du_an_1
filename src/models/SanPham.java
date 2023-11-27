@@ -4,11 +4,6 @@
  */
 package models;
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> d829542db56b4877333bacef154582df38d00afb
 /**
  *
  * @author admin
@@ -19,20 +14,18 @@ public class SanPham {
 
     public SanPham() {
     }
-<<<<<<< HEAD
+
     
     
     public SanPham(String tenSanPham) {
         this.tenSanPham = tenSanPham;
     }
 
-=======
 
-    public SanPham(String tenSanPham) {
-        this.tenSanPham = tenSanPham;
-    }
+
+   
     
->>>>>>> d829542db56b4877333bacef154582df38d00afb
+
     public SanPham(String maSanPham, String tenSanPham) {
         this.maSanPham = maSanPham;
         this.tenSanPham = tenSanPham;
@@ -53,8 +46,5 @@ public class SanPham {
     public void setTenSanPham(String tenSanPham) {
         this.tenSanPham = tenSanPham;
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> d829542db56b4877333bacef154582df38d00afb
+
 }

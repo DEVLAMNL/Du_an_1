@@ -4,11 +4,10 @@
  */
 package models;
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> d829542db56b4877333bacef154582df38d00afb
+
+ 
 /**
  *
  * @author admin

@@ -4,18 +4,14 @@
  */
 package models;
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> d829542db56b4877333bacef154582df38d00afb
 /**
  *
  * @author admin
  */
 public class SanPhamChiTiet {
     private int IdSanPhamChiTiet;
-<<<<<<< HEAD
+
     private SanPham sanPham;
     private KichThuoc kichThuoc;
     private ChatLieu chatLieu;
@@ -35,41 +31,35 @@ public class SanPhamChiTiet {
     public SanPhamChiTiet(int IdSanPhamChiTiet) {
         this.IdSanPhamChiTiet = IdSanPhamChiTiet;
     }
-    
 
-=======
-    
-    private KichThuoc kichThuoc;
-    private ChatLieu chatLieu;
-    private MauSac mauSac;
-    private SanPham sanPham;
-    
-    private int soLuong;
-    private float giaBan;
-
-    public SanPhamChiTiet() {
-    }
-
->>>>>>> d829542db56b4877333bacef154582df38d00afb
-    public SanPhamChiTiet(KichThuoc kichThuoc, ChatLieu chatLieu, MauSac mauSac, SanPham sanPham, int soLuong, float giaBan) {
-        this.kichThuoc = kichThuoc;
-        this.chatLieu = chatLieu;
-        this.mauSac = mauSac;
-        this.sanPham = sanPham;
-        this.soLuong = soLuong;
-        this.giaBan = giaBan;
-    }
-
-    public SanPhamChiTiet(int IdSanPhamChiTiet, KichThuoc kichThuoc, ChatLieu chatLieu, MauSac mauSac, SanPham sanPham, int soLuong, float giaBan) {
+    public SanPhamChiTiet(int IdSanPhamChiTiet, SanPham sanPham, KichThuoc kichThuoc, ChatLieu chatLieu, MauSac mauSac) {
         this.IdSanPhamChiTiet = IdSanPhamChiTiet;
+        this.sanPham = sanPham;
         this.kichThuoc = kichThuoc;
         this.chatLieu = chatLieu;
         this.mauSac = mauSac;
+    }
+    
+    public SanPhamChiTiet(SanPham sanPham, KichThuoc kichThuoc, ChatLieu chatLieu, MauSac mauSac, int soLuong, float giaBan) {
         this.sanPham = sanPham;
+        this.kichThuoc = kichThuoc;
+        this.chatLieu = chatLieu;
+        this.mauSac = mauSac;
         this.soLuong = soLuong;
         this.giaBan = giaBan;
     }
     
+    
+    
+    public SanPhamChiTiet(int IdSanPhamChiTiet, SanPham sanPham, KichThuoc kichThuoc, ChatLieu chatLieu, MauSac mauSac, int soLuong, float giaBan) {
+        this.IdSanPhamChiTiet = IdSanPhamChiTiet;
+        this.sanPham = sanPham;
+        this.kichThuoc = kichThuoc;
+        this.chatLieu = chatLieu;
+        this.mauSac = mauSac;
+        this.soLuong = soLuong;
+        this.giaBan = giaBan;
+    }
 
     public int getIdSanPhamChiTiet() {
         return IdSanPhamChiTiet;
@@ -77,6 +67,14 @@ public class SanPhamChiTiet {
 
     public void setIdSanPhamChiTiet(int IdSanPhamChiTiet) {
         this.IdSanPhamChiTiet = IdSanPhamChiTiet;
+    }
+
+    public SanPham getSanPham() {
+        return sanPham;
+    }
+
+    public void setSanPham(SanPham sanPham) {
+        this.sanPham = sanPham;
     }
 
     public KichThuoc getKichThuoc() {
@@ -103,14 +101,6 @@ public class SanPhamChiTiet {
         this.mauSac = mauSac;
     }
 
-    public SanPham getSanPham() {
-        return sanPham;
-    }
-
-    public void setSanPham(SanPham sanPham) {
-        this.sanPham = sanPham;
-    }
-
     public int getSoLuong() {
         return soLuong;
     }
@@ -126,5 +116,10 @@ public class SanPhamChiTiet {
     public void setGiaBan(float giaBan) {
         this.giaBan = giaBan;
     }
+    
+    
+
+    
+    
 
 }

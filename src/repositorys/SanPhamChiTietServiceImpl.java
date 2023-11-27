@@ -57,7 +57,7 @@ public class SanPhamChiTietServiceImpl implements SanPhamChiTietService {
                 int soLuong = rs.getInt("SoLuong");
                 float giaBan = rs.getFloat("GiaBan");
 
-                SanPhamChiTiet spct = new SanPhamChiTiet(idSanPhamCT, kt, cl, ms, sp, soLuong, giaBan);
+                SanPhamChiTiet spct = new SanPhamChiTiet(idSanPhamCT, sp, kt, cl, ms, soLuong, giaBan);
                 list.add(spct);
             }
         } catch (SQLException e) {
@@ -104,7 +104,7 @@ public class SanPhamChiTietServiceImpl implements SanPhamChiTietService {
                 int soLuong = rs.getInt("SoLuong");
                 float giaBan = rs.getFloat("GiaBan");
 
-                SanPhamChiTiet spct = new SanPhamChiTiet(idSanPhamCT, kt, cl, ms, sp, soLuong, giaBan);
+                SanPhamChiTiet spct = new SanPhamChiTiet(idSanPhamCT, sp, kt, cl, ms, soLuong, giaBan);
                 list.add(spct);
             }
         } catch (SQLException e) {
@@ -222,7 +222,7 @@ public class SanPhamChiTietServiceImpl implements SanPhamChiTietService {
 
                 int soLuong = rs.getInt("SoLuong");
                 float giaBan = rs.getFloat("GiaBan");
-                SanPhamChiTiet spct = new SanPhamChiTiet(idSanPhamCT, kt, cl, ms, sp, soLuong, giaBan);
+                SanPhamChiTiet spct = new SanPhamChiTiet(idSanPhamCT, sp, kt, cl, ms, soLuong, giaBan);
                 list.add(spct);
             }
         } catch (SQLException e) {
