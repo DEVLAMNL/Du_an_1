@@ -4,7 +4,7 @@
  */
 package view;
 
-import repositorys.NhanVienDao;
+import repository.NhanVienRepository;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,13 +20,13 @@ import models.NhanVien;
 public class viewNhanVien extends javax.swing.JFrame {
 
     DefaultTableModel dtm = new DefaultTableModel();
-    NhanVienDao nvdao = new NhanVienDao();
+    NhanVienRepository nvdao = new NhanVienRepository();
     ArrayList<NhanVien> listnv = new ArrayList<>();
     int index = -1;
 
     public viewNhanVien() {
         initComponents();
-        listnv = nvdao.finALL();
+        listnv = nvdao.getAllNhanVien();
         loadTable(listnv);
     }
 
@@ -646,7 +646,7 @@ public class viewNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_tbHienThiMouseClicked
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-        loadTable(nvdao.finALL());
+        loadTable(nvdao.getAllNhanVien());
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnXOaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXOaActionPerformed
@@ -657,9 +657,9 @@ public class viewNhanVien extends javax.swing.JFrame {
         int chon = JOptionPane.showConfirmDialog(this, "xác nhận xóa ?", "Hủy", JOptionPane.YES_NO_OPTION);
         if (chon == JOptionPane.YES_OPTION) {
             int id = Integer.parseInt(tbHienThi.getValueAt(index, 0).toString());
-            if (nvdao.delete(id)) {
+            if (nvdao.deleteNhanVien(id)) {
                 JOptionPane.showMessageDialog(this, "xóa thành công");
-                listnv = nvdao.finALL();
+                listnv = nvdao.getAllNhanVien();
                 loadTable(listnv);
             }
         } else {

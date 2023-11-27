@@ -1,5 +1,7 @@
 
-package entity;
+package models;
+
+import models.HangKhachHang;
 
 public class KhachHang {
 String IdKhachHang , MaKhachHang, TenKhachHang, DiaChi,SDT;
@@ -7,6 +9,10 @@ int GioiTinh;
 private HangKhachHang loaiKhachHang;
 
     public KhachHang() {
+    }
+
+    public KhachHang(String TenKhachHang) {
+        this.TenKhachHang = TenKhachHang;
     }
 
 

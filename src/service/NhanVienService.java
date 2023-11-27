@@ -15,7 +15,15 @@ import models.NhanVien;
  */
 public interface NhanVienService {
     
-     public ArrayList<NhanVien> getAllNhanVien();
+    public ArrayList<NhanVien> getAllNhanVien();
     
+    public void insertNhanVien(NhanVien nv);
     
+    public void updateNhanVien(int id, NhanVien nv);
+
+    public void deleteNhanVien(int id);
+    
+    public ArrayList<NhanVien> timKiem(int ma);
+    
+    public ArrayList<NhanVien> Loc(String condition);
 }

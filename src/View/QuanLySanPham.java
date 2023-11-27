@@ -14,15 +14,15 @@ import service.KichThuocService;
 import service.MauSacService;
 import service.SanPhamChiTietService;
 import service.SanPhamService;
-import repositorys.ChatLieuServiceImpl;
+import repository.ChatLieuRepository;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
-import repositorys.KichThuocServiceImpl;
-import repositorys.MauSacServiceImpl;
-import repositorys.SanPhamChiTietServiceImpl;
-import repositorys.SanPhamServiceImpl;
+import repository.KichThuocRepository;
+import repository.MauSacRepository;
+import repository.SanPhamChiTietRepository;
+import repository.SanPhamRepository;
 
 /**
  *
@@ -30,11 +30,11 @@ import repositorys.SanPhamServiceImpl;
  */
 public class QuanLySanPham extends javax.swing.JFrame {
 
-    private MauSacService serviceMauSac = new MauSacServiceImpl();
-    private ChatLieuService serviceChatLieu = new ChatLieuServiceImpl();
-    private KichThuocService serviceKichThuoc = new KichThuocServiceImpl();
-    private SanPhamService serviceSanPham = new SanPhamServiceImpl();
-    private SanPhamChiTietService serviceSanPhamChiTiet = new SanPhamChiTietServiceImpl();
+    private MauSacService serviceMauSac = new MauSacRepository();
+    private ChatLieuService serviceChatLieu = new ChatLieuRepository();
+    private KichThuocService serviceKichThuoc = new KichThuocRepository();
+    private SanPhamService serviceSanPham = new SanPhamRepository();
+    private SanPhamChiTietService serviceSanPhamChiTiet = new SanPhamChiTietRepository();
 
     private DefaultComboBoxModel<String> defaultCBBKichThuoc = new DefaultComboBoxModel<>();
     private DefaultComboBoxModel<String> defaultCBBChatLieu = new DefaultComboBoxModel<>();

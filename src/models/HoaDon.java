@@ -12,11 +12,14 @@ import java.util.Date;
  * @author MSI Laptop
  */
 public class HoaDon {
-    private int idhoaDon;
+    private int idHoaDon;
     private NhanVien nhanVien;
-    private int idKhachHang;
+    private KhachHang khachHang;
     private String maHoaDon;
     private Date ngayTao;
+    private Boolean tinhTrang;
+    private PhieuGiamGia phieuGiamGia;
+    private PhieuGiaoHang phieuGiaoHang;
 
     public HoaDon() {
     }
@@ -25,22 +28,35 @@ public class HoaDon {
         this.maHoaDon = maHoaDon;
     }
 
-    public HoaDon(int idhoaDon, NhanVien nhanVien, int idKhachHang, String maHoaDon, Date ngayTao) {
-        this.idhoaDon = idhoaDon;
+    public HoaDon(int idHoaDon, NhanVien nhanVien, KhachHang khachHang, String maHoaDon, Date ngayTao, Boolean tinhTrang, PhieuGiaoHang phieuGiaoHang) {
+        this.idHoaDon = idHoaDon;
         this.nhanVien = nhanVien;
-        this.idKhachHang = idKhachHang;
+        this.khachHang = khachHang;
         this.maHoaDon = maHoaDon;
         this.ngayTao = ngayTao;
-    }
-    
-    
-
-    public int getIdhoaDon() {
-        return idhoaDon;
+        this.tinhTrang = tinhTrang;
+        this.phieuGiaoHang = phieuGiaoHang;
     }
 
-    public void setIdhoaDon(int idhoaDon) {
-        this.idhoaDon = idhoaDon;
+    
+
+    public HoaDon(int idHoaDon, NhanVien nhanVien, KhachHang khachHang, String maHoaDon, Date ngayTao, Boolean tinhTrang, PhieuGiamGia phieuGiamGia, PhieuGiaoHang phieuGiaoHang) {
+        this.idHoaDon = idHoaDon;
+        this.nhanVien = nhanVien;
+        this.khachHang = khachHang;
+        this.maHoaDon = maHoaDon;
+        this.ngayTao = ngayTao;
+        this.tinhTrang = tinhTrang;
+        this.phieuGiamGia = phieuGiamGia;
+        this.phieuGiaoHang = phieuGiaoHang;
+    }
+
+    public int getIdHoaDon() {
+        return idHoaDon;
+    }
+
+    public void setIdHoaDon(int idHoaDon) {
+        this.idHoaDon = idHoaDon;
     }
 
     public NhanVien getNhanVien() {
@@ -51,14 +67,12 @@ public class HoaDon {
         this.nhanVien = nhanVien;
     }
 
-   
-
-    public int getIdKhachHang() {
-        return idKhachHang;
+    public KhachHang getKhachHang() {
+        return khachHang;
     }
 
-    public void setIdKhachHang(int idKhachHang) {
-        this.idKhachHang = idKhachHang;
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
     }
 
     public String getMaHoaDon() {
@@ -77,4 +91,29 @@ public class HoaDon {
         this.ngayTao = ngayTao;
     }
 
+    public Boolean getTinhTrang() {
+        return tinhTrang;
+    }
+
+    public void setTinhTrang(Boolean tinhTrang) {
+        this.tinhTrang = tinhTrang;
+    }
+
+    public PhieuGiamGia getPhieuGiamGia() {
+        return phieuGiamGia;
+    }
+
+    public void setPhieuGiamGia(PhieuGiamGia phieuGiamGia) {
+        this.phieuGiamGia = phieuGiamGia;
+    }
+
+    public PhieuGiaoHang getPhieuGiaoHang() {
+        return phieuGiaoHang;
+    }
+
+    public void setPhieuGiaoHang(PhieuGiaoHang phieuGiaoHang) {
+        this.phieuGiaoHang = phieuGiaoHang;
+    }
+
+    
 }

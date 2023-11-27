@@ -4,7 +4,7 @@
  */
 package view;
 
-import repositorys.ChucVuDAO;
+import repository.ChucVuRepository;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +16,7 @@ import model.ChucVu;
 public class viewChucVu extends javax.swing.JFrame {
 
     DefaultTableModel dtm = new DefaultTableModel();
-    ChucVuDAO cvdao = new ChucVuDAO();
+    ChucVuRepository cvdao = new ChucVuRepository();
     ArrayList<ChucVu> listcv = new ArrayList<>();
     int index = -1;
     public viewChucVu() {
@@ -301,7 +301,7 @@ public class viewChucVu extends javax.swing.JFrame {
             return;
         }
         cv.setIdChucVu(id);
-        cvdao.update(cv);
+        cvdao.update(cv, id);
         if(checkTrong()){
             JOptionPane.showMessageDialog(this, "update thành công");
         }
@@ -317,13 +317,9 @@ public class viewChucVu extends javax.swing.JFrame {
         int chon = JOptionPane.showConfirmDialog(this, "xác nhận xóa ?", "Hủy", JOptionPane.YES_NO_OPTION);
         if (chon == JOptionPane.YES_OPTION) {
             int id = Integer.parseInt(tbHienThi.getValueAt(index, 0).toString());
-            if (cvdao.delete(id)) {
-                JOptionPane.showMessageDialog(this, "xóa thành công");
+                cvdao.delete(id);
                 listcv = cvdao.finALL();
                 loadTable(listcv);
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "xoá thất bại");
         }
     }//GEN-LAST:event_btnXoaActionPerformed
 

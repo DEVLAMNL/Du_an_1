@@ -1,30 +1,22 @@
 package View;
 
-//import viewmodels.HoaDon;
-//import viewmodels.Khachhang;
-import repositorys.PhieugiaohangRepo;
-import services.imp.HoaDon_Service;
-import service.IHoaDon_Service;
-import service.Ipgh_Service;
-import services.imp.Pgh_Service;
+import repository.HoaDonRepository;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
-import viewmodels.HoaDonViewModel;
-import viewmodels.KhachhangViewModel;
+import service.HoaDonService;
 
 public class PhieuGiaoHang extends javax.swing.JFrame {
 
-    private Ipgh_Service Pgh_Service = new Pgh_Service();
-//    private ArrayList<Model.PhieuGiaoHang> listPgh = Pgh_Service.getAll();
-    private PhieugiaohangRepo pgh = new PhieugiaohangRepo();
+//    private PhieuGiaoHangRepository phieuGiaoHangRepository = new PhieuGiaoHangRepository();
+//    private ArrayList<PhieuGiaoHang> listPgh = phieuGiaoHangRepository.getAll();
     private DefaultComboBoxModel cbbDefault = new DefaultComboBoxModel();
     private DefaultComboBoxModel cbbDefaultKhachhang = new DefaultComboBoxModel();
-    private ArrayList<viewmodels.PhieuGiaoHang> listCbbpgh = Pgh_Service.getAll();
+//    private ArrayList<PhieuGiaoHang> listCbbpgh = phieuGiaoHangRepository.getAll();
     private ArrayList<KhachhangViewModel> GetById;
-    private IHoaDon_Service HDsv = new HoaDon_Service();
+    private HoaDonService HDsv = new HoaDon_Service();
     private ArrayList<HoaDonViewModel> listHD = HDsv.getAll();
 
     public PhieuGiaoHang() {

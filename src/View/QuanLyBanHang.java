@@ -8,7 +8,7 @@ import models.SanPhamChiTiet;
 import service.SanPhamChiTietService;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import repositorys.SanPhamChiTietServiceImpl;
+import repository.SanPhamChiTietRepository;
 
 /**
  *
@@ -16,7 +16,7 @@ import repositorys.SanPhamChiTietServiceImpl;
  */
 public class QuanLyBanHang extends javax.swing.JFrame {
 
-    private SanPhamChiTietService serviceSanPhamChiTiet = new SanPhamChiTietServiceImpl();
+    private SanPhamChiTietService serviceSanPhamChiTiet = new SanPhamChiTietRepository();
     /**
      * Creates new form QuanLyBanHang
      */
