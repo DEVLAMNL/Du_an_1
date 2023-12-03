@@ -3,8 +3,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import models.KhachHang;
 import models.HangKhachHang;
+=======
+import entity.KhachHang;
+import entity.HangKhachHang;
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
 
 public class KhachHangReponsitory {
 
@@ -70,7 +75,11 @@ public class KhachHangReponsitory {
         }
     }
 
+<<<<<<< HEAD
     public ArrayList<KhachHang> getall() {
+=======
+    public ArrayList<KhachHang> all() {
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
         ArrayList<KhachHang> listBan2 = new ArrayList<>();
 
         try {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -148,3 +149,5 @@ public class NhanVien {
     }
 
 }
+=======
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3

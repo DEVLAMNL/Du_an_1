@@ -2,7 +2,11 @@ package repositorys;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import models.NhanVien;
+=======
+import model.NhanVien;
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;

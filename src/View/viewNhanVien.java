@@ -4,14 +4,22 @@
  */
 package view;
 
+<<<<<<< HEAD
 import repository.NhanVienRepository;
+=======
+import repositorys.NhanVienDao;
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+<<<<<<< HEAD
 import models.NhanVien;
+=======
+import model.NhanVien;
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
 
 /**
  *
@@ -20,13 +28,21 @@ import models.NhanVien;
 public class viewNhanVien extends javax.swing.JFrame {
 
     DefaultTableModel dtm = new DefaultTableModel();
+<<<<<<< HEAD
     NhanVienRepository nvdao = new NhanVienRepository();
+=======
+    NhanVienDao nvdao = new NhanVienDao();
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
     ArrayList<NhanVien> listnv = new ArrayList<>();
     int index = -1;
 
     public viewNhanVien() {
         initComponents();
+<<<<<<< HEAD
         listnv = nvdao.getAllNhanVien();
+=======
+        listnv = nvdao.finALL();
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
         loadTable(listnv);
     }
 
@@ -646,7 +662,11 @@ public class viewNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_tbHienThiMouseClicked
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+<<<<<<< HEAD
         loadTable(nvdao.getAllNhanVien());
+=======
+        loadTable(nvdao.finALL());
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnXOaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXOaActionPerformed
@@ -657,9 +677,15 @@ public class viewNhanVien extends javax.swing.JFrame {
         int chon = JOptionPane.showConfirmDialog(this, "xác nhận xóa ?", "Hủy", JOptionPane.YES_NO_OPTION);
         if (chon == JOptionPane.YES_OPTION) {
             int id = Integer.parseInt(tbHienThi.getValueAt(index, 0).toString());
+<<<<<<< HEAD
             if (nvdao.deleteNhanVien(id)) {
                 JOptionPane.showMessageDialog(this, "xóa thành công");
                 listnv = nvdao.getAllNhanVien();
+=======
+            if (nvdao.delete(id)) {
+                JOptionPane.showMessageDialog(this, "xóa thành công");
+                listnv = nvdao.finALL();
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
                 loadTable(listnv);
             }
         } else {
@@ -679,11 +705,19 @@ public class viewNhanVien extends javax.swing.JFrame {
             return;
         }
         nv.setIdNhanVien(id);
+<<<<<<< HEAD
         nvdao.updateNhanVien(id, nv);
         if (checkTrong()) {
             JOptionPane.showMessageDialog(this, "update thành công");
         }
         listnv = nvdao.getAllNhanVien();
+=======
+        nvdao.update(nv);
+        if (checkTrong()) {
+            JOptionPane.showMessageDialog(this, "update thành công");
+        }
+        listnv = nvdao.finALL();
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
         loadTable(listnv);
     }//GEN-LAST:event_btnSuaActionPerformed
 
@@ -691,9 +725,15 @@ public class viewNhanVien extends javax.swing.JFrame {
         int chon = JOptionPane.showConfirmDialog(this, "xác nhận thêm ?", "Hủy", JOptionPane.YES_NO_OPTION);
         if (chon == JOptionPane.YES_OPTION) {
             if (checkTrong()) {
+<<<<<<< HEAD
                 if (nvdao.insertNhanVien(finData())) {
                     JOptionPane.showMessageDialog(this, "thêm thành công");
                     listnv = nvdao.getAllNhanVien();
+=======
+                if (nvdao.insert(finData())) {
+                    JOptionPane.showMessageDialog(this, "thêm thành công");
+                    listnv = nvdao.finALL();
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
                     loadTable(listnv);
 
                 } else {

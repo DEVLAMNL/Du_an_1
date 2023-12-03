@@ -3,15 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package models;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
 /**
  *
  * @author admin
  */
 public class SanPhamChiTiet {
     private int IdSanPhamChiTiet;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
     private SanPham sanPham;
     private KichThuoc kichThuoc;
     private ChatLieu chatLieu;
@@ -59,8 +65,22 @@ public class SanPhamChiTiet {
     public SanPhamChiTiet(int IdSanPhamChiTiet) {
         this.IdSanPhamChiTiet = IdSanPhamChiTiet;
     }
+<<<<<<< HEAD
 
     public SanPhamChiTiet(int IdSanPhamChiTiet, SanPham sanPham, KichThuoc kichThuoc, ChatLieu chatLieu, MauSac mauSac) {
+=======
+    
+    public SanPhamChiTiet(KichThuoc kichThuoc, ChatLieu chatLieu, MauSac mauSac, SanPham sanPham, int soLuong, float giaBan) {
+        this.kichThuoc = kichThuoc;
+        this.chatLieu = chatLieu;
+        this.mauSac = mauSac;
+        this.sanPham = sanPham;
+        this.soLuong = soLuong;
+        this.giaBan = giaBan;
+    }
+
+    public SanPhamChiTiet(int IdSanPhamChiTiet, KichThuoc kichThuoc, ChatLieu chatLieu, MauSac mauSac, SanPham sanPham, int soLuong, float giaBan) {
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
         this.IdSanPhamChiTiet = IdSanPhamChiTiet;
         this.sanPham = sanPham;
         this.kichThuoc = kichThuoc;

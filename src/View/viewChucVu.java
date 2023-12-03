@@ -4,11 +4,19 @@
  */
 package view;
 
+<<<<<<< HEAD
 import repository.ChucVuRepository;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.ChucVu;
+=======
+import repositorys.ChucVuDAO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.ChucVu;
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
 /**
  *
  * @author LEGION
@@ -16,7 +24,11 @@ import models.ChucVu;
 public class viewChucVu extends javax.swing.JFrame {
 
     DefaultTableModel dtm = new DefaultTableModel();
+<<<<<<< HEAD
     ChucVuRepository cvdao = new ChucVuRepository();
+=======
+    ChucVuDAO cvdao = new ChucVuDAO();
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
     ArrayList<ChucVu> listcv = new ArrayList<>();
     int index = -1;
     public viewChucVu() {
@@ -41,11 +53,25 @@ public class viewChucVu extends javax.swing.JFrame {
         txtChucVu.setText(cv.getTenChucVu());  
     }
     public ChucVu finData() {
+<<<<<<< HEAD
         String TenChucVu = txtChucVu.getText();
         ChucVu chucVu = new ChucVu(TenChucVu);
         return chucVu;
     }
     private boolean checkTrong() {
+=======
+        int IdChucVu = Integer.parseInt(txtid.getText());
+        String TenChucVu = txtChucVu.getText();
+        ChucVu chucVu = new ChucVu(IdChucVu, TenChucVu);
+        return chucVu;
+    }
+    private boolean checkTrong() {
+        if (txtid.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "không để trống !");
+            txtid.requestFocus();
+            return false;
+        }
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
         if (txtChucVu.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "không để trống !");
             txtChucVu.requestFocus();
@@ -295,7 +321,11 @@ public class viewChucVu extends javax.swing.JFrame {
             return;
         }
         cv.setIdChucVu(id);
+<<<<<<< HEAD
         cvdao.update(cv, id);
+=======
+        cvdao.update(cv);
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
         if(checkTrong()){
             JOptionPane.showMessageDialog(this, "update thành công");
         }
@@ -311,9 +341,19 @@ public class viewChucVu extends javax.swing.JFrame {
         int chon = JOptionPane.showConfirmDialog(this, "xác nhận xóa ?", "Hủy", JOptionPane.YES_NO_OPTION);
         if (chon == JOptionPane.YES_OPTION) {
             int id = Integer.parseInt(tbHienThi.getValueAt(index, 0).toString());
+<<<<<<< HEAD
                 cvdao.delete(id);
                 listcv = cvdao.finALL();
                 loadTable(listcv);
+=======
+            if (cvdao.delete(id)) {
+                JOptionPane.showMessageDialog(this, "xóa thành công");
+                listcv = cvdao.finALL();
+                loadTable(listcv);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "xoá thất bại");
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
         }
     }//GEN-LAST:event_btnXoaActionPerformed
 

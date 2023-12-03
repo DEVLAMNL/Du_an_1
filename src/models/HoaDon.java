@@ -124,6 +124,7 @@ public class HoaDon {
     public void setNgayTao(Date ngayTao) {
         this.ngayTao = ngayTao;
     }
+<<<<<<< HEAD
 
     public Boolean getTinhTrang() {
         return tinhTrang;
@@ -150,4 +151,6 @@ public class HoaDon {
     }
 
     
+=======
+>>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
 }
