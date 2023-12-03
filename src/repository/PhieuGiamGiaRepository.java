@@ -13,13 +13,15 @@ import java.util.List;
 import models.LoaiGiamGia;
 import models.MucGiamGia;
 import models.PhieuGiamGia;
+import service.PhieuGiamGiaService;
 
 /**
  *
  * @author Acer
  */
-public class PhieuGiamGiaRepository {
+public class PhieuGiamGiaRepository implements PhieuGiamGiaService{
 
+    @Override
     public List<PhieuGiamGia> getAll() {
         String query = """
                        SELECT dbo.PhieuGiamGia.IdPhieuGiamGia, dbo.PhieuGiamGia.MaPhieu, dbo.PhieuGiamGia.TenPhieu, dbo.PhieuGiamGia.NgayTao, dbo.PhieuGiamGia.NgayKetThuc, dbo.LoaiGiamGia.TenLoaiGiamGia, dbo.MucGiamGia.GiaTri, 
@@ -43,6 +45,7 @@ public class PhieuGiamGiaRepository {
         return null;
     }
 
+    @Override
     public boolean add(PhieuGiamGia pgg) {
         String query = """
                        INSERT INTO [dbo].[PhieuGiamGia]           ([MaPhieu]           ,[TenPhieu]           ,[IdLoaiGiamGia]           ,[IdMucGiamGia]           ,[TrangThai]           ,[NgayTao]           ,[NgayKetThuc])     VALUES
@@ -63,6 +66,7 @@ public class PhieuGiamGiaRepository {
         return check > 0;
     }
 
+    @Override
     public boolean update(PhieuGiamGia pgg, String MaPhieu) {
         String query = "UPDATE [dbo].[PhieuGiamGia]"
                 + "   SET [TenPhieu] = ?"
@@ -88,6 +92,7 @@ public class PhieuGiamGiaRepository {
         return check > 0;
     }
 
+    @Override
     public boolean delete(String MaPhieu) {
         String query = "DELETE FROM [dbo].[PhieuGiamGia]"
                 + "      WHERE [MaPhieu]= ?";

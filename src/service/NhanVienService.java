@@ -17,11 +17,11 @@ public interface NhanVienService {
     
     public ArrayList<NhanVien> getAllNhanVien();
     
-    public void insertNhanVien(NhanVien nv);
+    public boolean insertNhanVien(NhanVien nv);
     
-    public void updateNhanVien(int id, NhanVien nv);
+    public boolean updateNhanVien(int id, NhanVien nv);
 
-    public void deleteNhanVien(int id);
+    public boolean deleteNhanVien(int id);
     
     public ArrayList<NhanVien> timKiem(int ma);
     

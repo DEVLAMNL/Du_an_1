@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package models;
 
 /**
  *
@@ -12,6 +12,14 @@ public class ChucVu {
     private int IdChucVu;
     private String TenChucVu;
 
+    public ChucVu(String TenChucVu) {
+        this.TenChucVu = TenChucVu;
+    }
+
+    public ChucVu() {
+    }
+
+    
     public ChucVu(int IdChucVu, String TenChucVu) {
         this.IdChucVu = IdChucVu;
         this.TenChucVu = TenChucVu;

@@ -6,6 +6,7 @@ package service;
 
 import java.util.List;
 import models.LoaiGiamGia;
+import models.PhieuGiamGia;
 
 /**
  *
@@ -16,11 +17,11 @@ public interface LoaiGiamGiaService {
     
     LoaiGiamGia getOne(String id);
     
-    String add(LoaiGiamGia lgg);
+    public boolean add(LoaiGiamGia lgg);
     
-    String update(LoaiGiamGia lgg, int id);
+    public boolean update(LoaiGiamGia lgg, int id);
     
-    String delete(String Ten);
+    public boolean delete(String Ten);
     
-    List<LoaiGiamGia> searchByName(List<LoaiGiamGia> lgg, String name);
+//    List<LoaiGiamGia> searchByName(List<LoaiGiamGia> lgg, String name);
 }

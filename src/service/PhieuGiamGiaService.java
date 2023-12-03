@@ -14,11 +14,11 @@ import models.PhieuGiamGia;
 public interface PhieuGiamGiaService {
     List<PhieuGiamGia> getAll();
     
-    String add(PhieuGiamGia pgg);
+    boolean add(PhieuGiamGia pgg);
     
-    List<PhieuGiamGia> searchBy(List<PhieuGiamGia> listpgg, String ma);
+    //List<PhieuGiamGia> searchBy(List<PhieuGiamGia> listpgg, String ma);
     
-    String delete(String MaPhieu);
+    boolean delete(String MaPhieu);
     
-    String update(PhieuGiamGia pgg, String MaPhieu);
+    boolean update(PhieuGiamGia pgg, String MaPhieu);
 }

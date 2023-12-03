@@ -4,10 +4,13 @@
  */
 package service;
 
+import java.util.List;
+import models.HoaDonChiTiet;
+
 /**
  *
  * @author admin
  */
 public interface HoaDonChiTietService {
-    
+    public List<HoaDonChiTiet> getListHoaDonChiTiet(int idHD);
 }

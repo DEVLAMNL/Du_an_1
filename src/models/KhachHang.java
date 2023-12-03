@@ -1,77 +1,77 @@
-
 package models;
 
 import models.HangKhachHang;
 
 public class KhachHang {
-String IdKhachHang , MaKhachHang, TenKhachHang, DiaChi,SDT;
-int GioiTinh;
-private HangKhachHang loaiKhachHang;
+
+    int idKhachHang;
+    String maKhachHang, tenKhachHang, diaChi, sdt;
+    boolean gioiTinh;
+    private HangKhachHang loaiKhachHang;
 
     public KhachHang() {
     }
 
-    public KhachHang(String TenKhachHang) {
-        this.TenKhachHang = TenKhachHang;
+    public KhachHang(String tenKhachHang) {
+        this.tenKhachHang = tenKhachHang;
     }
-
-
-    public KhachHang(String IdKhachHang, String MaKhachHang, String TenKhachHang, String DiaChi, String SDT, int GioiTinh, HangKhachHang loaiKhachHang) {
-        this.IdKhachHang = IdKhachHang;
-        this.MaKhachHang = MaKhachHang;
-        this.TenKhachHang = TenKhachHang;
-        this.DiaChi = DiaChi;
-        this.SDT = SDT;
-        this.GioiTinh = GioiTinh;
+    
+    public KhachHang(int idKhachHang, String maKhachHang, String tenKhachHang, String diaChi, String sdt, boolean gioiTinh, HangKhachHang loaiKhachHang) {
+        this.idKhachHang = idKhachHang;
+        this.maKhachHang = maKhachHang;
+        this.tenKhachHang = tenKhachHang;
+        this.diaChi = diaChi;
+        this.sdt = sdt;
+        this.gioiTinh = gioiTinh;
         this.loaiKhachHang = loaiKhachHang;
     }
 
-    public String getIdKhachHang() {
-        return IdKhachHang;
+    public int getIdKhachHang() {
+        return idKhachHang;
     }
 
-    public void setIdKhachHang(String IdKhachHang) {
-        this.IdKhachHang = IdKhachHang;
+    public void setIdKhachHang(int idKhachHang) {
+        this.idKhachHang = idKhachHang;
     }
 
     public String getMaKhachHang() {
-        return MaKhachHang;
+        return maKhachHang;
     }
 
-    public void setMaKhachHang(String MaKhachHang) {
-        this.MaKhachHang = MaKhachHang;
+    public void setMaKhachHang(String maKhachHang) {
+        this.maKhachHang = maKhachHang;
     }
 
     public String getTenKhachHang() {
-        return TenKhachHang;
+        return tenKhachHang;
     }
 
-    public void setTenKhachHang(String TenKhachHang) {
-        this.TenKhachHang = TenKhachHang;
+    public void setTenKhachHang(String tenKhachHang) {
+        this.tenKhachHang = tenKhachHang;
     }
 
     public String getDiaChi() {
-        return DiaChi;
+        return diaChi;
     }
 
-    public void setDiaChi(String DiaChi) {
-        this.DiaChi = DiaChi;
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
     }
 
-    public String getSDT() {
-        return SDT;
+    public String getSdt() {
+        return sdt;
     }
 
-    public void setSDT(String SDT) {
-        this.SDT = SDT;
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
 
-    public int getGioiTinh() {
-        return GioiTinh;
+    public boolean isGioiTinh() {
+        return gioiTinh;
     }
 
-    public void setGioiTinh(int GioiTinh) {
-        this.GioiTinh = GioiTinh;
+    public void setGioiTinh(boolean gioiTinh) {
+        this.gioiTinh = gioiTinh;
     }
 
     public HangKhachHang getLoaiKhachHang() {
@@ -81,9 +81,6 @@ private HangKhachHang loaiKhachHang;
     public void setLoaiKhachHang(HangKhachHang loaiKhachHang) {
         this.loaiKhachHang = loaiKhachHang;
     }
-  
-
-  
 
     
 }

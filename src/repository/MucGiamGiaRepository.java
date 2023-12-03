@@ -11,13 +11,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import models.MucGiamGia;
+import service.MucGiamGiaService;
 
 /**
  *
  * @author Acer
  */
-public class MucGiamGiaRepository {
+public class MucGiamGiaRepository implements MucGiamGiaService{
 
+    @Override
     public List<MucGiamGia> getAll() {
         String query = "SELECT [IdMucGiamGia]"
                 + "      ,[GiaTri]"
@@ -35,6 +37,7 @@ public class MucGiamGiaRepository {
         return null;
     }
 
+    @Override
     public MucGiamGia getOne(String id) {
         String query = "SELECT [IdMucGiamGia]"
                 + "      ,[GiaTri]"

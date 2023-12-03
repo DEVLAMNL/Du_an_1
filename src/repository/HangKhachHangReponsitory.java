@@ -9,13 +9,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import models.HangKhachHang;
+import service.HangKhachHangService;
 
 /**
  *
  * @author HP
  */
-public class HangKhachHangReponsitory {
+public class HangKhachHangReponsitory implements HangKhachHangService{
 
+    @Override
     public ArrayList<HangKhachHang> all() {
         ArrayList<HangKhachHang> dslkh = new ArrayList<>();
 

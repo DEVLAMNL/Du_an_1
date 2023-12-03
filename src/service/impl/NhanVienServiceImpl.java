@@ -20,16 +20,16 @@ public class NhanVienServiceImpl extends NhanVienRepository{
         return this.repo.getAllNhanVien();
     }
     
-    public void insertNhanVien(NhanVien nv) {
-        this.repo.insertNhanVien(nv);
+    public boolean insertNhanVien(NhanVien nv) {
+        return this.repo.insertNhanVien(nv);
     }
     
-    public void deleteNhanVien(int id) {
-        this.repo.deleteNhanVien(id);
+    public boolean deleteNhanVien(int id) {
+        return this.repo.deleteNhanVien(id);
     }
     
-    public void updateNhanVien(int id, NhanVien nv) {
-        this.repo.updateNhanVien(id, nv);
+    public boolean updateNhanVien(int id, NhanVien nv) {
+        return this.repo.updateNhanVien(id, nv);
     }
     
     public ArrayList<NhanVien> timKiem(int ma) {

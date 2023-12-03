@@ -25,4 +25,6 @@ public interface SanPhamChiTietService {
     public void deleteSanPhamCT(int id);
     
     public List<SanPhamChiTiet> searchSanPhamChiTiet(String searchCode);
+
+public boolean updateSoLuongSP(int idSP, int SoLuong);
 }

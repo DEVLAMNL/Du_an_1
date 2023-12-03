@@ -5,18 +5,18 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.KhachHang;
 import models.HangKhachHang;
-import repository.HangKhachHangReponsitory;
-import repository.KhachHangReponsitory;
+import services.imp.KhachHangServiceImpl;
 //import services.imp.LoaiKhachHangService;
 
 
 public class KhachHangJframe extends javax.swing.JFrame {
 
-    private KhachHangReponsitory khRepo = new KhachHangReponsitory();
-    private HangKhachHangReponsitory hangKhachHangReponsitory = new HangKhachHangReponsitory();
+    private KhachHangServiceImpl bansv;
+    private LoaiKhachHangService loaiKhachHangService = new Loai();
 
     public KhachHangJframe() {
         initComponents();
+        this.bansv = new KhachHangServiceImpl();
         this.loadTable("");
         this.loadCombobox();
     }
@@ -51,7 +51,7 @@ public class KhachHangJframe extends javax.swing.JFrame {
         btnSua = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        cbbLoaikh = new javax.swing.JComboBox<>();
+        cbbLoaikh = new javax.swing.JComboBox<entity.HangKhachHang>();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -125,7 +125,7 @@ public class KhachHangJframe extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(58, 325, 760, 445);
+        jPanel2.setBounds(58, 325, 0, 0);
 
         jLabel8.setText("Thiết Lập Thông Tin Khách Hàng");
         getContentPane().add(jLabel8);
@@ -196,7 +196,7 @@ public class KhachHangJframe extends javax.swing.JFrame {
 
         jLabel11.setText("Loại Khách Hàng ");
 
-        cbbLoaikh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbbLoaikh.setModel(new javax.swing.DefaultComboBoxModel<entity.HangKhachHang>());
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -248,7 +248,7 @@ public class KhachHangJframe extends javax.swing.JFrame {
                         .addComponent(rdoNam)
                         .addGap(35, 35, 35)
                         .addComponent(rdoNu, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addContainerGap(269, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,11 +286,11 @@ public class KhachHangJframe extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(58, 64, 750, 227);
+        jPanel3.setBounds(58, 64, 750, 0);
 
         jLabel10.setText("Thông Tin Khách Hàng ");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(58, 303, 123, 16);
+        jLabel10.setBounds(58, 303, 124, 16);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -327,7 +327,7 @@ public class KhachHangJframe extends javax.swing.JFrame {
         if (ban == null) {
             return;
         }
-        this.khRepo.insert(ban);
+        this.bansv.insert(ban);
         this.loadTable("");
         this.clean();
 
@@ -346,7 +346,7 @@ public class KhachHangJframe extends javax.swing.JFrame {
         if (ban == null) {
             return;
         }
-        this.khRepo.update(ban.getIdKhachHang(), ban);
+        this.bansv.update(ban.getIdKhachHang(), ban);
         this.loadTable("");
         this.clean();
 
@@ -365,7 +365,7 @@ public class KhachHangJframe extends javax.swing.JFrame {
 
         }
         String id = this.tblKhachhang.getValueAt(row, 0).toString();
-        this.khRepo.delete(id);
+        this.bansv.delete(id);
         this.loadTable("");
         this.clean();
 
@@ -405,14 +405,14 @@ public class KhachHangJframe extends javax.swing.JFrame {
     private void loadTable(String key) {
         DefaultTableModel dtm = (DefaultTableModel) this.tblKhachhang.getModel();
         dtm.setRowCount(0);
-        for (KhachHang ban : this.khRepo.search(key)) {
+        for (KhachHang ban : this.bansv.search(key)) {
             Object[] rowData = {
                 ban.getIdKhachHang(),
                 ban.getMaKhachHang(),
                 ban.getTenKhachHang(),
                 ban.getDiaChi(),
                 ban.getSDT(),
-                ban.getGioiTinh() == 0 ? "Nam" : "Nữ",
+                ban.getGioiTinh() == 1 ? "Nam" : "Nữ",
                 ban.getLoaiKhachHang()
             };
             dtm.addRow(rowData);
@@ -423,9 +423,9 @@ public class KhachHangJframe extends javax.swing.JFrame {
 
     public void loadCombobox() {
         cbbLoaikh.removeAllItems();
-        List<HangKhachHang> lkh = hangKhachHangReponsitory.all();
+        List<HangKhachHang> lkh = loaiKhachHangService.getall();
         for (HangKhachHang loaiKhachHang : lkh) {
-            cbbLoaikh.addItem(String.valueOf(loaiKhachHang));
+            cbbLoaikh.addItem(loaiKhachHang);
             System.out.println(loaiKhachHang.getIdHangKhachHang());
         }
     }
@@ -455,7 +455,7 @@ public class KhachHangJframe extends javax.swing.JFrame {
     private javax.swing.JButton btnXoa;
     private javax.swing.JButton btntTimKiem;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cbbLoaikh;
+    private javax.swing.JComboBox<HangKhachHang> cbbLoaikh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

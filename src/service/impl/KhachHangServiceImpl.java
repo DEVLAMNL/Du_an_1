@@ -24,11 +24,11 @@ public class KhachHangServiceImpl extends KhachHangReponsitory{
         this.repo.insert(b);
     }
     
-    public void delete(String id) {
+    public void delete(int id) {
         this.repo.delete(id);
     }
     
-    public void update(String id, KhachHang b) {
+    public void update(int id, KhachHang b) {
         this.repo.update(id, b);
     }
 }

@@ -5,7 +5,7 @@
 package service.impl;
 
 import java.util.ArrayList;
-import model.ChucVu;
+import models.ChucVu;
 import repository.ChucVuRepository;
 
 /**

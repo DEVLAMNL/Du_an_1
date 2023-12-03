@@ -13,7 +13,7 @@ import models.HoaDon;
  */
 public interface HoaDonService {
 
-    public ArrayList<HoaDon> getAll();
+    public ArrayList<HoaDon> getAllHD();
 
     public void insert(HoaDon hd);
 }

@@ -22,6 +22,10 @@ public class HangKhachHang {
     public HangKhachHang() {
     }
 
+    public HangKhachHang(String TenHangKhachHang) {
+        this.TenHangKhachHang = TenHangKhachHang;
+    }
+
     public HangKhachHang(int IdHangKhachHang, String TenHangKhachHang) {
         this.IdHangKhachHang = IdHangKhachHang;
         this.TenHangKhachHang = TenHangKhachHang;

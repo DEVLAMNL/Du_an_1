@@ -24,6 +24,40 @@ public class HoaDon {
     public HoaDon() {
     }
 
+    public HoaDon(NhanVien nhanVien) {
+        this.nhanVien = nhanVien;
+    }
+
+    public HoaDon(int idHoaDon) {
+        this.idHoaDon = idHoaDon;
+    }
+
+    public HoaDon(int idHoaDon, NhanVien nhanVien, Date ngayTao, Boolean tinhTrang) {
+        this.idHoaDon = idHoaDon;
+        this.nhanVien = nhanVien;
+        this.ngayTao = ngayTao;
+        this.tinhTrang = tinhTrang;
+    }
+
+    public HoaDon(int idHoaDon, Date ngayTao, Boolean tinhTrang) {
+        this.idHoaDon = idHoaDon;
+        this.ngayTao = ngayTao;
+        this.tinhTrang = tinhTrang;
+    }
+
+    public HoaDon(String maHoaDon, Date ngayTao, Boolean tinhTrang) {
+        this.maHoaDon = maHoaDon;
+        this.ngayTao = ngayTao;
+        this.tinhTrang = tinhTrang;
+    }
+
+    public HoaDon(int idHoaDon, String maHoaDon, Date ngayTao, Boolean tinhTrang) {
+        this.idHoaDon = idHoaDon;
+        this.maHoaDon = maHoaDon;
+        this.ngayTao = ngayTao;
+        this.tinhTrang = tinhTrang;
+    }
+
     public HoaDon(String maHoaDon) {
         this.maHoaDon = maHoaDon;
     }

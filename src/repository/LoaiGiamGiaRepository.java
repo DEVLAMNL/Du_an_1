@@ -11,13 +11,15 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.sql.SQLException;
+import service.LoaiGiamGiaService;
 
 /**
  *
  * @author Acer
  */
-public class LoaiGiamGiaRepository {
+public class LoaiGiamGiaRepository implements LoaiGiamGiaService{
 
+    @Override
     public List<LoaiGiamGia> getAll() {
         String query = "SELECT [IdLoaiGiamGia]"
                 + "      ,[TenLoaiGiamGia]"
@@ -36,6 +38,7 @@ public class LoaiGiamGiaRepository {
         return null;
     }
 
+    @Override
     public LoaiGiamGia getOne(String id) {
         String query = "SELECT [IdLoaiGiamGia]"
                 + "      ,[TenLoaiGiamGia]"
@@ -53,6 +56,7 @@ public class LoaiGiamGiaRepository {
         return null;
     }
 
+    @Override
     public boolean add(LoaiGiamGia lgg) {
         String query = "INSERT INTO [dbo].[LoaiGiamGia]"
                 + "           ([TenLoaiGiamGia]"
@@ -70,6 +74,7 @@ public class LoaiGiamGiaRepository {
         return check > 0;
     }
 
+    @Override
     public boolean update(LoaiGiamGia lgg, int id) {
         String query = "UPDATE [dbo].[LoaiGiamGia]\n"
                 + "   SET [TenLoaiGiamGia] = ?"
@@ -87,6 +92,7 @@ public class LoaiGiamGiaRepository {
         return check > 0;
     }
 
+    @Override
     public boolean delete(String Ten) {
         String query = "DELETE FROM [dbo].[LoaiGiamGia]"
                 + "      WHERE [TenLoaiGiamGia]=?";

@@ -1,25 +1,42 @@
 package repository;
 
+import Utilcontext.Util;
 import java.sql.Connection;
 import java.util.ArrayList;
 import models.NhanVien;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import service.NhanVienService;
+
 /**
  *
  * @author Admin
  */
-public class NhanVienRepository implements NhanVienService{
+public class NhanVienRepository implements NhanVienService {
 
-    private Connection conn;
+    private Connection conn = Util.getConnection();
 
+    @Override
     public ArrayList<NhanVien> getAllNhanVien() {
         ArrayList<NhanVien> ds = new ArrayList<>();
+        String sql = "SELECT [IdNhanVien]\n"
+                + "      ,[IdChucVu]\n"
+                + "      ,[MaNhanVien]\n"
+                + "      ,[TenNhanVien]\n"
+                + "      ,[GioiTinh]\n"
+                + "      ,[DiaChi]\n"
+                + "      ,[NgaySinh]\n"
+                + "      ,[NgayTao]\n"
+                + "      ,[TaiKhoan]\n"
+                + "      ,[MatKhau]\n"
+                + "      ,[Luong]\n"
+                + "	  ,[TrangThai]\n"
+                + "  FROM [dbo].[NhanVien]";
+
         try {
-            String sql = "select * from NhanVien";
-            PreparedStatement ps = this.conn.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareCall(sql);
             ps.execute();
             ResultSet rs = ps.getResultSet();
             while (rs.next()) {
@@ -29,26 +46,31 @@ public class NhanVienRepository implements NhanVienService{
                 String TenNhanVien = rs.getString("TenNhanVien");
                 boolean GioiTinh = rs.getBoolean("GioiTinh");
                 String DiaChi = rs.getString("DiaChi");
+
                 Date NgaySinh = rs.getDate("NgaySinh");
                 Date NgayTao = rs.getDate("NgayTao");
+
                 String TaiKhoan = rs.getString("TaiKhoan");
                 String MatKhau = rs.getString("MatKhau");
                 int Luong = rs.getInt("Luong");
                 String TrangThai = rs.getString("TrangThai");
+
                 NhanVien nv = new NhanVien(IdNhanVien, IdChucVu, MaNhanVien, TenNhanVien, GioiTinh, DiaChi, NgaySinh, NgayTao, TaiKhoan, MatKhau, Luong, TrangThai);
                 ds.add(nv);
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return ds;
     }
 
-    public void insertNhanVien(NhanVien nv) {
+    public boolean insertNhanVien(NhanVien nv) {
         Integer row = null;
         try {
             String sql = "INSERT INTO NhanVien ( IdChucVu, MaNhanVien, TenNhanVien, GioiTinh, DiaChi, NgaySinh, NgayTao, TaiKhoan, MatKhau, Luong, TrangThai) values(?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement ps = conn.prepareStatement(sql); 
+            PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, nv.getIdChucVu());
             ps.setString(2, nv.getMaNhanVien());
             ps.setString(3, nv.getTenNhanVien());
@@ -66,9 +88,10 @@ public class NhanVienRepository implements NhanVienService{
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;
     }
 
-    public void deleteNhanVien(int id) {
+    public boolean deleteNhanVien(int id) {
         Integer row = null;
         try {
             String sql = "delete from NhanVien where IdNhanVien = ?";
@@ -80,9 +103,10 @@ public class NhanVienRepository implements NhanVienService{
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;
     }
 
-    public void updateNhanVien(int id, NhanVien nv) {
+    public boolean updateNhanVien(int id, NhanVien nv) {
         Integer row = null;
         try {
             String sql = "UPDATE NhanVien SET IdChucVu = ?, MaNhanVien = ?, TenNhanVien = ?, GioiTinh = ?, DiaChi = ?, NgaySinh = ?, NgayTao= ?, TaiKhoan = ?, MatKhau = ?, Luong = ?, TrangThai = ?  WHERE IdNhanVien = ?";
@@ -99,14 +123,15 @@ public class NhanVienRepository implements NhanVienService{
             ps.setInt(10, nv.getLuong());
             ps.setString(11, nv.getTrangThai());
             ps.setInt(12, nv.getIdNhanVien());
-            
+
             row = ps.executeUpdate();
             System.out.println(row);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;
     }
-    
+
     public ArrayList<NhanVien> timKiem(int ma) {
         ArrayList<NhanVien> listNV = new ArrayList<>();
         try {
@@ -135,7 +160,7 @@ public class NhanVienRepository implements NhanVienService{
         }
         return listNV;
     }
-    
+
     public ArrayList<NhanVien> Loc(String condition) {
         ArrayList<NhanVien> ds = new ArrayList<>();
         try {
@@ -157,7 +182,7 @@ public class NhanVienRepository implements NhanVienService{
                 String MatKhau = rs.getString("MatKhau");
                 int luong = rs.getInt("Luong");
                 String TrangThai = rs.getString("TrangThai");
-                NhanVien nv = new NhanVien(IdNhanVien, IdChucVu, MaNhanVien, TenNhanVien, GioiTinh, DiaChi, NgaySinh, NgayTao, TaiKhoan, MatKhau, luong, TrangThai);  
+                NhanVien nv = new NhanVien(IdNhanVien, IdChucVu, MaNhanVien, TenNhanVien, GioiTinh, DiaChi, NgaySinh, NgayTao, TaiKhoan, MatKhau, luong, TrangThai);
                 ds.add(nv);
             }
         } catch (Exception e) {
@@ -165,5 +190,8 @@ public class NhanVienRepository implements NhanVienService{
         }
         return ds;
     }
-   
+
+    public static void main(String[] args) {
+        System.out.println(new NhanVienRepository().getAllNhanVien().toString());
+    }
 }

@@ -13,9 +13,10 @@ import javax.swing.table.DefaultTableModel;
 import models.LoaiGiamGia;
 import models.MucGiamGia;
 import models.PhieuGiamGia;
-import repository.LoaiGiamGiaRepository;
-import repository.MucGiamGiaRepository;
-import repository.PhieuGiamGiaRepository;
+import services.imp.LoaiGiamGiaServiceImpl;
+import services.imp.MucGiamGiaServiceImpl;
+import services.imp.PhieuGiamGiaServiceImpl;
+
 /**
  *
  * @author Acer
@@ -28,9 +29,9 @@ public class ViewsPhieuGiamGia extends javax.swing.JFrame {
     private List<MucGiamGia> listmgg = new ArrayList<>();
     private DefaultComboBoxModel dcbbMuc = new DefaultComboBoxModel();
     private DefaultComboBoxModel dcbbLoai = new DefaultComboBoxModel();
-    private PhieuGiamGiaRepository phieuGiamGiaRepository = new PhieuGiamGiaRepository();
-    private LoaiGiamGiaRepository loaiGiamGiaRepository = new LoaiGiamGiaRepository();
-    private MucGiamGiaRepository mucGiamGiaRepository = new MucGiamGiaRepository();
+    private PhieuGiamGiaServiceImpl phieuGiamGiaServiceImpl = new PhieuGiamGiaServiceImpl();
+    private LoaiGiamGiaServiceImpl loaiGiamGiaServiceImpl = new LoaiGiamGiaServiceImpl();
+    private MucGiamGiaServiceImpl mucGiamGiaServiceImpl = new MucGiamGiaServiceImpl();
     /**
      * Creates new form GiaoDien
      */
@@ -39,13 +40,13 @@ public class ViewsPhieuGiamGia extends javax.swing.JFrame {
         tbGiamGia.setModel(dtm);
         String[] headers = {"Ma Phieu", "Ten Phieu", "Ngay Bat Dau", "Ngay Ket Thuc", "Loai Giam Gia", "Muc Giam Gia", "Trang Thai"};
         dtm.setColumnIdentifiers(headers);
-        listpgg = phieuGiamGiaRepository.getAll();
+        listpgg = phieuGiamGiaServiceImpl.getAll();
         //cbbMuc
-        listmgg = mucGiamGiaRepository.getAll();
+        listmgg = mucGiamGiaServiceImpl.getAll();
         cbbMucGiamGia.setModel(dcbbMuc);
         listmgg.forEach(MucGiamGia -> cbbMucGiamGia.addItem(String.valueOf(MucGiamGia.getGiatri()) + "%"));
         //cbbLoai
-        listlgg = loaiGiamGiaRepository.getAll();
+        listlgg = loaiGiamGiaServiceImpl.getAll();
         cbbLoaiGiamGia.setModel(dcbbLoai);
         listlgg.forEach(LoaiGiamGia -> cbbLoaiGiamGia.addItem(LoaiGiamGia.getTenLoaiGiamGia()));
         //show table
@@ -104,6 +105,8 @@ public class ViewsPhieuGiamGia extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         cbbMucGiamGia = new javax.swing.JComboBox<>();
         cbbLoaiGiamGia = new javax.swing.JComboBox<>();
+        DCNgayBatDau = new com.toedter.calendar.JDateChooser();
+        DCNgayKetThuc = new com.toedter.calendar.JDateChooser();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbGiamGia = new javax.swing.JTable();
@@ -201,9 +204,13 @@ public class ViewsPhieuGiamGia extends javax.swing.JFrame {
                             .addComponent(lbNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(47, 47, 47)
                         .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbbLoaiGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbbMucGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 187, Short.MAX_VALUE))
+                            .addComponent(DCNgayBatDau, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                            .addComponent(DCNgayKetThuc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(pnGiamGiaLayout.createSequentialGroup()
+                                .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbbLoaiGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbbMucGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(pnGiamGiaLayout.createSequentialGroup()
                         .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnGiamGiaLayout.createSequentialGroup()
@@ -231,30 +238,35 @@ public class ViewsPhieuGiamGia extends javax.swing.JFrame {
         pnGiamGiaLayout.setVerticalGroup(
             pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnGiamGiaLayout.createSequentialGroup()
-                .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnGiamGiaLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel2)
-                        .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnGiamGiaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txtMa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                        .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnGiamGiaLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel2)
+                                .addGap(23, 23, 23))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnGiamGiaLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(txtMa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbMucGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbbMucGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbLoaiGiamGia)
+                            .addComponent(cbbLoaiGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addComponent(lbNgayBatDau))
+                    .addComponent(DCNgayBatDau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbMucGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbbMucGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbLoaiGiamGia)
-                    .addComponent(cbbLoaiGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(lbNgayBatDau)
-                .addGap(20, 20, 20)
-                .addComponent(lbNgayKetThuc)
+                .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbNgayKetThuc)
+                    .addComponent(DCNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(pnGiamGiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTrangthai)
@@ -376,8 +388,8 @@ public class ViewsPhieuGiamGia extends javax.swing.JFrame {
         Date ngaybatDau = DCNgayBatDau.getDate();
         Date ngayKetthuc = DCNgayKetThuc.getDate();
         PhieuGiamGia pgg = new PhieuGiamGia(lgg, mgg, ma, ten, ngaybatDau, ngayKetthuc, hoatDong);
-        boolean add = phieuGiamGiaRepository.add(pgg);
-        listpgg = phieuGiamGiaRepository.getAll();
+        String add = phieuGiamGiaServiceImpl.add(pgg);
+        listpgg = phieuGiamGiaServiceImpl.getAll();
         JOptionPane.showMessageDialog(this, add);
         showDataTb(listpgg);
     }//GEN-LAST:event_btnLuuActionPerformed
@@ -392,8 +404,8 @@ public class ViewsPhieuGiamGia extends javax.swing.JFrame {
         Date ngaybatDau = DCNgayBatDau.getDate();
         Date ngayKetthuc = DCNgayKetThuc.getDate();
         PhieuGiamGia pgg = new PhieuGiamGia(lgg, mgg, ma, ten, ngaybatDau, ngayKetthuc, hoatDong);
-        boolean update = phieuGiamGiaRepository.update(pgg, ma);
-        listpgg = phieuGiamGiaRepository.getAll();
+        String update = phieuGiamGiaServiceImpl.update(pgg, ma);
+        listpgg = phieuGiamGiaServiceImpl.getAll();
         JOptionPane.showMessageDialog(this, update);
         showDataTb(listpgg);
     }//GEN-LAST:event_btnCapNhatActionPerformed
@@ -401,8 +413,8 @@ public class ViewsPhieuGiamGia extends javax.swing.JFrame {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
         String ma = txtMa.getText();
-        boolean delete = phieuGiamGiaRepository.delete(ma);
-        listpgg = phieuGiamGiaRepository.getAll();
+        String delete = phieuGiamGiaServiceImpl.delete(ma);
+        listpgg = phieuGiamGiaServiceImpl.getAll();
         JOptionPane.showMessageDialog(this, delete);
         showDataTb(listpgg);
     }//GEN-LAST:event_btnXoaActionPerformed
@@ -420,10 +432,10 @@ public class ViewsPhieuGiamGia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-//        // TODO add your handling code here:
-//        String ma = txtTimkiem.getText();
-//        List<PhieuGiamGia> listgg = phieuGiamGiaRepository.searchBy(listpgg, ma);
-//        showDataTb(listgg);
+        // TODO add your handling code here:
+        String ma = txtTimkiem.getText();
+        List<PhieuGiamGia> listgg = phieuGiamGiaServiceImpl.searchBy(listpgg, ma);
+        showDataTb(listgg);
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void tbGiamGiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbGiamGiaMouseClicked
@@ -476,6 +488,8 @@ public class ViewsPhieuGiamGia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser DCNgayBatDau;
+    private com.toedter.calendar.JDateChooser DCNgayKetThuc;
     private javax.swing.JButton btnCapNhat;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLuu;

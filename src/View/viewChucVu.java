@@ -8,7 +8,7 @@ import repository.ChucVuRepository;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.ChucVu;
+import models.ChucVu;
 /**
  *
  * @author LEGION
@@ -41,17 +41,11 @@ public class viewChucVu extends javax.swing.JFrame {
         txtChucVu.setText(cv.getTenChucVu());  
     }
     public ChucVu finData() {
-        int IdChucVu = Integer.parseInt(txtid.getText());
         String TenChucVu = txtChucVu.getText();
-        ChucVu chucVu = new ChucVu(IdChucVu, TenChucVu);
+        ChucVu chucVu = new ChucVu(TenChucVu);
         return chucVu;
     }
     private boolean checkTrong() {
-        if (txtid.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "không để trống !");
-            txtid.requestFocus();
-            return false;
-        }
         if (txtChucVu.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "không để trống !");
             txtChucVu.requestFocus();

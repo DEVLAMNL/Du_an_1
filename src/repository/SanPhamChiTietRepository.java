@@ -230,4 +230,42 @@ public class SanPhamChiTietRepository implements SanPhamChiTietService {
         }
         return list;
     }
+
+    @Override
+    public boolean updateSoLuongSP(int SoLuong, int idSPCT) {
+        try {
+            String sql = "UPDATE [dbo].[SanPhamChiTiet]\n"
+                    + "   SET [SoLuong] = ?\n"
+                    + " WHERE IdSanPhamChiTiet = ?";
+            PreparedStatement pr = conn.prepareStatement(sql);
+            pr.setInt(1, SoLuong);
+            pr.setInt(2, idSPCT);
+            pr.executeUpdate();
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    public Integer getIdSanPham(int idSPCT) {
+        Integer idSP = 0;
+        try {
+            String sql = "select IdSanPhamChiTiet from ChiTietSanPham where IdSanPhamChiTiet = ?";
+            PreparedStatement pr = conn.prepareStatement(sql);
+            pr.setInt(1, idSPCT);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                idSP = rs.getInt(1);
+
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+
+        }
+        return idSP;
+    }
+    public static void main(String[] args) {
+        new SanPhamChiTietRepository().updateSoLuongSP(20, 33);
+    }
 }

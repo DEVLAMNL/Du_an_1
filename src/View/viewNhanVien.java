@@ -679,11 +679,11 @@ public class viewNhanVien extends javax.swing.JFrame {
             return;
         }
         nv.setIdNhanVien(id);
-        nvdao.update(nv);
+        nvdao.updateNhanVien(id, nv);
         if (checkTrong()) {
             JOptionPane.showMessageDialog(this, "update thành công");
         }
-        listnv = nvdao.finALL();
+        listnv = nvdao.getAllNhanVien();
         loadTable(listnv);
     }//GEN-LAST:event_btnSuaActionPerformed
 
@@ -691,9 +691,9 @@ public class viewNhanVien extends javax.swing.JFrame {
         int chon = JOptionPane.showConfirmDialog(this, "xác nhận thêm ?", "Hủy", JOptionPane.YES_NO_OPTION);
         if (chon == JOptionPane.YES_OPTION) {
             if (checkTrong()) {
-                if (nvdao.insert(finData())) {
+                if (nvdao.insertNhanVien(finData())) {
                     JOptionPane.showMessageDialog(this, "thêm thành công");
-                    listnv = nvdao.finALL();
+                    listnv = nvdao.getAllNhanVien();
                     loadTable(listnv);
 
                 } else {

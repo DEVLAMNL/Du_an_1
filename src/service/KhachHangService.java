@@ -15,9 +15,9 @@ public interface KhachHangService {
 
     public void insert(KhachHang kh);
 
-    public void update(String id, KhachHang kh);
+    public void update(int id, KhachHang kh);
 
-    public void delete(String id);
+    public void delete(int id);
 
     public ArrayList<KhachHang> getall();
 

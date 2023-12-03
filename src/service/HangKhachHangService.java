@@ -12,11 +12,11 @@ import models.HangKhachHang;
  * @author admin
  */
 public interface HangKhachHangService {
-    public ArrayList<HangKhachHang> getAllHangKhachHang();
-    
-    public void insertHangKhachHang(HangKhachHang hkh);
-    
-    public void updateHangKhachHang(int id, HangKhachHang khk);
-
-    public void deleteHangKhachHang(int id);
+    public ArrayList<HangKhachHang> all();
+//    
+//    public void insertHangKhachHang(HangKhachHang hkh);
+//    
+//    public void updateHangKhachHang(int id, HangKhachHang khk);
+//
+//    public void deleteHangKhachHang(int id);
 }

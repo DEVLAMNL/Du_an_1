@@ -16,7 +16,7 @@ public class SanPhamChiTiet {
     private KichThuoc kichThuoc;
     private ChatLieu chatLieu;
     private MauSac mauSac;
-    
+    private String maSP;
     
     private int soLuong;
     private float giaBan;
@@ -26,6 +26,34 @@ public class SanPhamChiTiet {
 
     public SanPhamChiTiet() {
         
+    }
+
+    @Override
+    public String toString() {
+        return "SanPhamChiTiet{" + "IdSanPhamChiTiet=" + IdSanPhamChiTiet + ", sanPham=" + sanPham + ", kichThuoc=" + kichThuoc + ", chatLieu=" + chatLieu + ", mauSac=" + mauSac + ", maSP=" + maSP + ", soLuong=" + soLuong + ", giaBan=" + giaBan + '}';
+    }
+
+    public SanPhamChiTiet(int IdSanPhamChiTiet, SanPham sanPham, float giaBan) {
+        this.IdSanPhamChiTiet = IdSanPhamChiTiet;
+        this.sanPham = sanPham;
+        this.giaBan = giaBan;
+    }
+
+    public SanPhamChiTiet(int IdSanPhamChiTiet, SanPham sanPham) {
+        this.IdSanPhamChiTiet = IdSanPhamChiTiet;
+        this.sanPham = sanPham;
+    }
+
+    public SanPhamChiTiet(int IdSanPhamChiTiet, SanPham sanPham, int soLuong, float giaBan) {
+        this.IdSanPhamChiTiet = IdSanPhamChiTiet;
+        this.sanPham = sanPham;
+        this.soLuong = soLuong;
+        this.giaBan = giaBan;
+    }
+
+    public SanPhamChiTiet(int IdSanPhamChiTiet, String maSP) {
+        this.IdSanPhamChiTiet = IdSanPhamChiTiet;
+        this.maSP = maSP;
     }
 
     public SanPhamChiTiet(int IdSanPhamChiTiet) {

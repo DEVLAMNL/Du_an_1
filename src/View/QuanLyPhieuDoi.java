@@ -5,7 +5,6 @@
 package View;
 
 
-import repository.PhieuDoiRepository;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -32,7 +31,7 @@ import models.SanPhamChiTiet;
  */
 public class QuanLyPhieuDoi extends javax.swing.JFrame {
 
-    private PhieuDoiService phieuDoiService = new PhieuDoiRepository();
+    private PhieuDoiService phieuDoiService = new PhieuDoiServiceImpl();
     private NhanVienService nhanVienService = new NhanVienServiceImpl();
     private DefaultComboBoxModel<String> defaultCBBNhanVien = new DefaultComboBoxModel<>();
     private ArrayList<NhanVien> listcbbNhanVien = nhanVienService.getAllNhanVien();
@@ -40,7 +39,7 @@ public class QuanLyPhieuDoi extends javax.swing.JFrame {
      * Creates new form QuanLyPhieuDoi
      */
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    private PhieuDoiService service = new PhieuDoiRepository();
+    private PhieuDoiService service = new PhieuDoiServiceImpl();
 
     public QuanLyPhieuDoi() {
         initComponents();

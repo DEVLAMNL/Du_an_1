@@ -7,15 +7,17 @@ package repository;
 import Utilcontext.Util;
 import java.sql.Connection;
 import java.util.ArrayList;
-import model.ChucVu;
+import models.ChucVu;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import service.ChucVuService;
 
-public class ChucVuRepository {
+public class ChucVuRepository implements ChucVuService{
 
     private Connection conn = Util.getConnection();
 
+    @Override
     public ArrayList<ChucVu> finALL() {
         String sql = "select * from ChucVu";
         ArrayList<ChucVu> list = new ArrayList<>();
@@ -35,6 +37,7 @@ public class ChucVuRepository {
         return list;
     }
 
+    @Override
     public boolean insert(ChucVu cv) {
         Integer row = null;
         try {
@@ -53,6 +56,7 @@ public class ChucVuRepository {
         return row > 0;
     }
 
+    @Override
     public void delete(int id) {
         String sql = "DELETE FROM [dbo].[ChucVu]\n"
                 + "      WHERE IdChucVu = ?";
@@ -65,6 +69,7 @@ public class ChucVuRepository {
         }
     }
 
+    @Override
     public void update(ChucVu cv, int id) {
         String sql = "UPDATE [dbo].[ChucVu]\n"
                 + "   SET [TenChucVu] = ?\n"
