@@ -118,11 +118,11 @@ public class frm_Khuyenmai extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(1010, 640));
 
-        panelGradiente1.setBackground(new java.awt.Color(204, 255, 255));
-        panelGradiente1.setColorPrimario(new java.awt.Color(204, 255, 255));
-        panelGradiente1.setColorSecundario(new java.awt.Color(255, 204, 255));
+        panelGradiente1.setBackground(new java.awt.Color(204, 204, 204));
+        panelGradiente1.setColorPrimario(new java.awt.Color(204, 204, 204));
+        panelGradiente1.setColorSecundario(new java.awt.Color(153, 153, 153));
 
-        panelBorder1.setBackground(new java.awt.Color(204, 204, 255));
+        panelBorder1.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Ngày bắt đầu");
@@ -141,14 +141,14 @@ public class frm_Khuyenmai extends javax.swing.JPanel {
         panelBorder1.add(jLabel4);
         jLabel4.setBounds(390, 130, 130, 30);
 
-        rd_VND.setBackground(new java.awt.Color(204, 204, 255));
+        rd_VND.setBackground(new java.awt.Color(204, 204, 204));
         buttonGroup1.add(rd_VND);
         rd_VND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         rd_VND.setText("VND");
         panelBorder1.add(rd_VND);
         rd_VND.setBounds(530, 130, 50, 30);
 
-        rd_phantram.setBackground(new java.awt.Color(204, 204, 255));
+        rd_phantram.setBackground(new java.awt.Color(204, 204, 204));
         buttonGroup1.add(rd_phantram);
         rd_phantram.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rd_phantram.setText("%");
@@ -235,7 +235,7 @@ public class frm_Khuyenmai extends javax.swing.JPanel {
         panelBorder1.add(jScrollPane2);
         jScrollPane2.setBounds(20, 160, 580, 130);
 
-        cb_selectAll.setBackground(new java.awt.Color(204, 204, 255));
+        cb_selectAll.setBackground(new java.awt.Color(204, 204, 204));
         cb_selectAll.setText("Select All");
         cb_selectAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,7 +243,7 @@ public class frm_Khuyenmai extends javax.swing.JPanel {
             }
         });
         panelBorder1.add(cb_selectAll);
-        cb_selectAll.setBounds(20, 130, 71, 20);
+        cb_selectAll.setBounds(20, 130, 80, 20);
 
         panelGradiente1.add(panelBorder1);
         panelBorder1.setBounds(10, 0, 990, 300);

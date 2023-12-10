@@ -386,7 +386,7 @@ public class frm_Sanpham extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1010, 640));
 
         panelGradiente1.setColorPrimario(new java.awt.Color(204, 204, 204));
-        panelGradiente1.setColorSecundario(new java.awt.Color(255, 204, 255));
+        panelGradiente1.setColorSecundario(new java.awt.Color(51, 51, 51));
 
         panelBorder1.setBackground(new java.awt.Color(204, 204, 204));
         panelBorder1.add(txt_ma);

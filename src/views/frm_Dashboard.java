@@ -126,8 +126,9 @@ public class frm_Dashboard extends javax.swing.JFrame {
             }
         });
 
+        lbltieude.setBackground(new java.awt.Color(255, 0, 51));
         lbltieude.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbltieude.setForeground(new java.awt.Color(255, 255, 255));
+        lbltieude.setForeground(new java.awt.Color(255, 0, 51));
         lbltieude.setText("Bán hàng");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
