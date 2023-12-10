@@ -199,6 +199,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
 
     private void clear() {
         lbl_sdt.setText("");
+
         lbl_tongTien1.setText(String.valueOf(0));
         lbl_giamGia1.setText(String.valueOf(0.0));
         lbl_thanhTien.setText(String.valueOf(0));
@@ -206,6 +207,8 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         lbl_tienThua.setText("");
         txt_ghiChu.setText("");
         lbl_sdt.setText("");
+
+
         lbl_tenKhachHang.setText("");
 
     }
@@ -308,6 +311,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+
         jLabel11 = new javax.swing.JLabel();
         txt_tienKhachDua = new swing.MyTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -515,6 +519,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         jLabel8.setText("SĐT khách hàng");
         panelGradiente4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 250, 20));
 
+
         jLabel11.setText("Khách Cần Trả");
         panelGradiente4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 250, 20));
 
@@ -568,7 +573,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
                 btn_xacNhanActionPerformed(evt);
             }
         });
-        panelGradiente4.add(btn_xacNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 100, 30));
+
 
         lbl_thanhTien.setForeground(new java.awt.Color(255, 51, 51));
         lbl_thanhTien.setText("0");
@@ -766,6 +771,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         hoaDon.setTongTien(Double.parseDouble(lbl_thanhTien.getText()));
         hoaDonServiec.updateTrangThaiHoaDon(hoaDon);
 
+
         List<KhachHang> getListKhachHang = khachHangService.TenDiemKhachHang(lbl_sdt.getText());
 
         JOptionPane.showMessageDialog(this, "thanh toán thành công");
@@ -933,6 +939,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
             getListGioHangHDCT(MaHD);
             lbl_tenKhachHang.setText("");
             lbl_sdt.setText("");
+
             Double tongPT = 0.0;
             Double tongVN = 0.0;
             Double tongTien = 0.0;
@@ -1041,6 +1048,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
             lbl_tongTien1.setText(String.valueOf(0));
             lbl_giamGia1.setText(String.valueOf(0));
             lbl_thanhTien.setText(String.valueOf(0));
+
         } else {
             return;
         }
@@ -1131,6 +1139,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         for (HoaDon hoaDon : getList) {
             lbl_tenKhachHang.setText(hoaDon.getKhachHang().getTen());
             lbl_sdt.setText(hoaDon.getKhachHang().getSdt());
+
             return;
         }
     }//GEN-LAST:event_btn_xacNhanActionPerformed
