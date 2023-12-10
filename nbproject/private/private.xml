@@ -2,13 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/D:/Du_an_1/nbproject/build-impl.xml</file>
-            <file>file:/D:/Du_an_1/src/Utilcontext/Util.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/viewmodels/HoaDonViewModel.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/repositorys/imp/HoaDonRepostory.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/application/main.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/views/frm_Hoadon.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/views/frm_Banhang.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/viewmodels/HoaDonCHiTietViewModel.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/views/frm_Login.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/views/frm_Thongke.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/views/frm_Khachhang.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/views/frm_Sanpham.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/views/KhachHangForm.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/services/IHoaDonServiec.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/views/frm_themthuoctinh.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/views/frm_Dashboard.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/services/ISanPhamServiecs.java</file>
+            <file>file:/D:/DuAn1_QLBanQuanAo/QLbanhang/src/repositorys/ISanPhamReposory.java</file>
         </group>
->>>>>>> 5b54ac0152933e4f0064ab38b0f34ada86e049f3
     </open-files>
 </project-private>
