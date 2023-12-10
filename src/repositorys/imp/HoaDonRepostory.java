@@ -522,8 +522,6 @@ public class HoaDonRepostory implements IHoaDonRepostory {
         return getList;
     }
 
-    
-
     public static void main(String[] args) {
         System.out.println(new HoaDonRepostory().getKhachHang("HD631353181").toString());
 //         System.out.println(new HoaDonRepostory().getListHoaDonChiTiet("HD-2055145").toString());

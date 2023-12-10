@@ -108,13 +108,14 @@ public class frm_Thongke extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(1010, 640));
 
-        panelGradiente1.setColorPrimario(new java.awt.Color(204, 255, 255));
-        panelGradiente1.setColorSecundario(new java.awt.Color(255, 204, 255));
+        panelGradiente1.setBackground(new java.awt.Color(0, 0, 0));
+        panelGradiente1.setColorPrimario(new java.awt.Color(204, 204, 204));
+        panelGradiente1.setColorSecundario(new java.awt.Color(51, 51, 51));
         panelGradiente1.setMaximumSize(new java.awt.Dimension(1000, 630));
         panelGradiente1.setMinimumSize(new java.awt.Dimension(1000, 630));
         panelGradiente1.setName(""); // NOI18N
 
-        panelBorder2.setBackground(new java.awt.Color(204, 204, 255));
+        panelBorder2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
@@ -134,7 +135,7 @@ public class frm_Thongke extends javax.swing.JPanel {
         panelGradiente1.add(panelBorder2);
         panelBorder2.setBounds(10, 0, 230, 190);
 
-        panelBorder3.setBackground(new java.awt.Color(204, 204, 255));
+        panelBorder3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/box.png"))); // NOI18N
         panelBorder3.add(jLabel6);
@@ -164,7 +165,7 @@ public class frm_Thongke extends javax.swing.JPanel {
         panelGradiente1.add(panelBorder3);
         panelBorder3.setBounds(510, 0, 230, 190);
 
-        panelBorder4.setBackground(new java.awt.Color(204, 204, 255));
+        panelBorder4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
@@ -184,7 +185,7 @@ public class frm_Thongke extends javax.swing.JPanel {
         panelGradiente1.add(panelBorder4);
         panelBorder4.setBounds(260, 0, 230, 190);
 
-        panelBorder1.setBackground(new java.awt.Color(204, 204, 255));
+        panelBorder1.setBackground(new java.awt.Color(255, 255, 255));
 
         Tb_Sp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -202,7 +203,7 @@ public class frm_Thongke extends javax.swing.JPanel {
         panelBorder1.add(Click_Nv);
         Click_Nv.setBounds(0, 90, 990, 340);
 
-        rd_ngay.setBackground(new java.awt.Color(204, 204, 255));
+        rd_ngay.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rd_ngay);
         rd_ngay.setText("Ngày");
         rd_ngay.addActionListener(new java.awt.event.ActionListener() {
@@ -211,9 +212,9 @@ public class frm_Thongke extends javax.swing.JPanel {
             }
         });
         panelBorder1.add(rd_ngay);
-        rd_ngay.setBounds(30, 0, 60, 25);
+        rd_ngay.setBounds(30, 0, 60, 21);
 
-        rd_thang.setBackground(new java.awt.Color(204, 204, 255));
+        rd_thang.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rd_thang);
         rd_thang.setText("Tháng");
         rd_thang.addActionListener(new java.awt.event.ActionListener() {
@@ -222,9 +223,9 @@ public class frm_Thongke extends javax.swing.JPanel {
             }
         });
         panelBorder1.add(rd_thang);
-        rd_thang.setBounds(30, 20, 60, 25);
+        rd_thang.setBounds(30, 20, 60, 21);
 
-        rd_nam.setBackground(new java.awt.Color(204, 204, 255));
+        rd_nam.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rd_nam);
         rd_nam.setText("Năm");
         rd_nam.addActionListener(new java.awt.event.ActionListener() {
@@ -249,7 +250,7 @@ public class frm_Thongke extends javax.swing.JPanel {
         panelBorder1.add(date_year);
         date_year.setBounds(340, 10, 100, 30);
 
-        btn_bieudo.setBackground(new java.awt.Color(153, 255, 204));
+        btn_bieudo.setBackground(new java.awt.Color(255, 153, 153));
         btn_bieudo.setText("Biểu đồ");
         btn_bieudo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204), 2));
         btn_bieudo.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +261,7 @@ public class frm_Thongke extends javax.swing.JPanel {
         panelBorder1.add(btn_bieudo);
         btn_bieudo.setBounds(780, 30, 140, 40);
 
-        rd_khoang.setBackground(new java.awt.Color(204, 204, 255));
+        rd_khoang.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rd_khoang);
         rd_khoang.setText("Tìm theo khoảng");
         rd_khoang.addActionListener(new java.awt.event.ActionListener() {
@@ -269,7 +270,7 @@ public class frm_Thongke extends javax.swing.JPanel {
             }
         });
         panelBorder1.add(rd_khoang);
-        rd_khoang.setBounds(30, 60, 120, 25);
+        rd_khoang.setBounds(30, 60, 120, 21);
         panelBorder1.add(date_tu);
         date_tu.setBounds(200, 60, 125, 22);
         panelBorder1.add(Date_den);
@@ -286,7 +287,7 @@ public class frm_Thongke extends javax.swing.JPanel {
         panelGradiente1.add(panelBorder1);
         panelBorder1.setBounds(10, 210, 990, 430);
 
-        panelBorder5.setBackground(new java.awt.Color(204, 204, 255));
+        panelBorder5.setBackground(new java.awt.Color(255, 255, 255));
 
         lbl_kh.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_kh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
