@@ -199,7 +199,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
 
     private void clear() {
         lbl_sdt.setText("");
-        txt_diem.setText("");
+//        txt_diem.setText("");
         lbl_tongTien1.setText(String.valueOf(0));
         lbl_giamGia1.setText(String.valueOf(0.0));
         lbl_thanhTien.setText(String.valueOf(0));
@@ -208,7 +208,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         lbl_tienThua.setText("");
         txt_ghiChu.setText("");
         lbl_sdt.setText("");
-        txt_diem.setText("");
+//        txt_diem.setText("");
         lbl_tenKhachHang.setText("");
 
     }
@@ -317,8 +317,6 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txt_diem = new swing.MyTextField();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txt_tienKhachDua = new swing.MyTextField();
@@ -330,7 +328,6 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         chk_inHoaDon = new javax.swing.JCheckBox();
         btn_thanhToan = new swing.MyButton();
         btn_xacNhan = new swing.MyButton();
-        btn_suDung = new swing.MyButton();
         lbl_thanhTien = new javax.swing.JLabel();
         lbl_tienThua = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -529,12 +526,6 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         jLabel8.setText("SĐT khách hàng");
         panelGradiente4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 250, 20));
 
-        txt_diem.setForeground(new java.awt.Color(0, 153, 153));
-        panelGradiente4.add(txt_diem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 250, 30));
-
-        jLabel9.setText("Điểm thưởng");
-        panelGradiente4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 250, 20));
-
         jLabel10.setText("Khách Hàng Được Điểm");
         panelGradiente4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 250, 20));
 
@@ -592,15 +583,6 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
             }
         });
         panelGradiente4.add(btn_xacNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 90, 30));
-
-        btn_suDung.setBackground(new java.awt.Color(125, 224, 237));
-        btn_suDung.setText("Sử dụng");
-        btn_suDung.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_suDungActionPerformed(evt);
-            }
-        });
-        panelGradiente4.add(btn_suDung, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 90, 30));
 
         lbl_thanhTien.setForeground(new java.awt.Color(255, 51, 51));
         lbl_thanhTien.setText("0");
@@ -807,14 +789,13 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         hoaDon.setTongTien(Double.parseDouble(lbl_thanhTien.getText()));
         hoaDonServiec.updateTrangThaiHoaDon(hoaDon);
 
-        if (btn_suDung.getText().equals("Hoàn Tác")) {
-            List<KhachHang> getListKhachHang = khachHangService.TenDiemKhachHang(lbl_sdt.getText());
-            for (KhachHang khachHang : getListKhachHang) {
-                khachHangService.updateDiemKhachHang(lbl_sdt.getText(), khachHang.getDiemthuong() - Integer.parseInt(txt_diem.getText()));
-
-                break;
-            }
-        }
+//        if (btn_suDung.getText().equals("Hoàn Tác")) {
+//            List<KhachHang> getListKhachHang = khachHangService.TenDiemKhachHang(lbl_sdt.getText());
+//            for (KhachHang khachHang : getListKhachHang) {
+//                khachHangService.updateDiemKhachHang(lbl_sdt.getText(), khachHang.getDiemthuong() - Integer.parseInt(txt_diem.getText()));
+//                break;
+//            }
+//        }
         List<KhachHang> getListKhachHang = khachHangService.TenDiemKhachHang(lbl_sdt.getText());
         for (KhachHang khachHang : getListKhachHang) {
             khachHangService.updateDiemKhachHang(lbl_sdt.getText(), khachHang.getDiemthuong() + Integer.parseInt(lbl_diemThuong.getText()));
@@ -971,46 +952,6 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         }
     }//GEN-LAST:event_btn_taoHoaDonActionPerformed
 
-    private void btn_suDungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suDungActionPerformed
-        try {
-            if (lbl_tenKhachHang.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "nhập số điện thoại khách hàng");
-                return;
-            }
-            if (txt_diem.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Điểm không được để trống");
-                return;
-            }
-            if (btn_suDung.getText().equals("Sử dụng")) {
-                List<KhachHang> listKhachHang = khachHangService.TenDiemKhachHang(lbl_sdt.getText());
-                for (KhachHang x : listKhachHang) {
-                    if (Double.parseDouble(txt_diem.getText()) > x.getDiemthuong()) {
-                        JOptionPane.showMessageDialog(this, "khách Hàng Không Đủ điểm");
-                        return;
-                    }
-                    double tongTien = Double.parseDouble(lbl_tongTien1.getText());
-                    int diem = Integer.parseInt(txt_diem.getText());
-                    double suDungDien = diem * 1000;
-                    Double giam = Double.parseDouble(lbl_giamGia1.getText()) + suDungDien;
-                    lbl_giamGia1.setText(String.valueOf(giam));
-                    double thanhTien = tongTien - Double.parseDouble(lbl_giamGia1.getText());
-                    lbl_thanhTien.setText(String.valueOf(thanhTien));
-                    btn_suDung.setText("Hoàn Tác");
-                    return;
-                }
-            }
-            if (btn_suDung.getText().equals("Hoàn Tác")) {
-                mouse();
-                btn_suDung.setText("Sử dụng");
-                return;
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "không nhập kí tự");
-        }
-
-
-    }//GEN-LAST:event_btn_suDungActionPerformed
-
     private void tb_hoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_hoaDonMouseClicked
         int row = tb_hoaDon.getSelectedRow();
         if (row < 0) {
@@ -1026,7 +967,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
             getListGioHangHDCT(MaHD);
             lbl_tenKhachHang.setText("");
             lbl_sdt.setText("");
-            txt_diem.setText("");
+//            txt_diem.setText("");
             Double tongPT = 0.0;
             Double tongVN = 0.0;
             Double tongTien = 0.0;
@@ -1141,7 +1082,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
             lbl_tongTien1.setText(String.valueOf(0));
             lbl_giamGia1.setText(String.valueOf(0));
             lbl_thanhTien.setText(String.valueOf(0));
-            txt_diem.setText(String.valueOf(0));
+//            txt_diem.setText(String.valueOf(0));
             lbl_diemThuong.setText("");
         } else {
             return;
@@ -1233,7 +1174,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         for (HoaDon hoaDon : getList) {
             lbl_tenKhachHang.setText(hoaDon.getKhachHang().getTen());
             lbl_sdt.setText(hoaDon.getKhachHang().getSdt());
-            txt_diem.setText(String.valueOf(hoaDon.getKhachHang().getDiemthuong()));
+//            txt_diem.setText(String.valueOf(hoaDon.getKhachHang().getDiemthuong()));
             return;
         }
     }//GEN-LAST:event_btn_xacNhanActionPerformed
@@ -1298,7 +1239,6 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.MyButton btn_clear;
-    private swing.MyButton btn_suDung;
     private swing.MyButton btn_taoHoaDon;
     private swing.MyButton btn_thanhToan;
     private swing.MyButton btn_thayDoi;
@@ -1321,7 +1261,6 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
@@ -1346,7 +1285,6 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
     private javax.swing.JTable tb_gioHang;
     private javax.swing.JTable tb_hoaDon;
     private javax.swing.JTable tb_sanPham;
-    private swing.MyTextField txt_diem;
     private javax.swing.JTextArea txt_ghiChu;
     private swing.MyTextField txt_tienKhachDua;
     // End of variables declaration//GEN-END:variables
