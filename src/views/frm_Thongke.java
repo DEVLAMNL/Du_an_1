@@ -384,6 +384,7 @@ public class frm_Thongke extends javax.swing.JPanel {
         lbl_hd.setText(String.valueOf(repository.gethdyear(String.valueOf(date_year.getYear()))));
         lbl_kh.setText(String.valueOf(repository.getkhyear(String.valueOf(date_year.getYear()))));
         lbl_sanpham.setText(String.valueOf(repository.getbyyear(String.valueOf(date_year.getYear()))));
+        
         defaultTableModel1.setRowCount(0);
         int stt = 1;
         for (Thongke x : repository.getspyear(String.valueOf(date_year.getYear()))) {

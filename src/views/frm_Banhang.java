@@ -764,6 +764,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
         hoaDon.setNgayThanhToan(date);
         hoaDon.setMa(tb_hoaDon.getValueAt(rowHD, 0).toString());
         hoaDon.setTongTien(Double.parseDouble(lbl_thanhTien.getText()));
+        
         hoaDonServiec.updateTrangThaiHoaDon(hoaDon);
 
         List<KhachHang> getListKhachHang = khachHangService.TenDiemKhachHang(lbl_sdt.getText());
@@ -912,6 +913,7 @@ public class frm_Banhang extends javax.swing.JPanel implements Runnable, ThreadF
             System.out.println("thêm thành công");
             List<HoaDonViewModel> list = hoaDonServiec.getListHD(1);
             list.clear();
+            
             getListHoaDon();
         } else {
             System.out.println("thêm thất bại");

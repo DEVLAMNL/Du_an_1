@@ -310,6 +310,7 @@ public class frm_Sanpham extends javax.swing.JPanel {
         gianhap = Double.parseDouble(txt_gianhap.getText());
         giaban = Double.parseDouble(txt_giaban.getText());
         soluong = Integer.parseInt(txt_soluongton.getText());
+        
         ChiTietSPViewModel ctsp = new ChiTietSPViewModel(txt_ma.getText(), txt_ten.getText(), nsx, mausac, danhmuc, kichco, chatlieu, thuonghieu, null, soluong, gianhap, giaban, mota, zenbarcode());
         return ctsp;
     }
@@ -329,6 +330,7 @@ public class frm_Sanpham extends javax.swing.JPanel {
         double giaban = (double) tbl_sp.getValueAt(row, 11);
         String mota = tbl_sp.getValueAt(row, 12).toString();
         String barcode = tbl_sp.getValueAt(row, 13).toString();
+        
         return new ChiTietSPViewModel(ma, ten, nsx, ms, dmsp, kc, cl, th, km, soluong, gianhap, giaban, mota, barcode);
     }
 
