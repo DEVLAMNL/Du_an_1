@@ -521,7 +521,50 @@ public class HoaDonRepostory implements IHoaDonRepostory {
         }
         return getList;
     }
+    
+    public List<HoaDon> getKhachHangg(String MaHD) {
+         List<HoaDon> getList = new ArrayList<>();
+        try {
+            String sql = "SELECT kh.Ho , kh.TenDem , kh.Ten , kh.sdt , kh.DiemThuong FROM HoaDon hd join KhachHang kh on hd.idKH = kh.id where hd.Ma =?";
 
+            Connection conn = DBConnection.openDbConnection();
+            PreparedStatement pr = conn.prepareStatement(sql);
+            pr.setString(1, MaHD);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                KhachHang kh = new KhachHang();
+                kh.setTen(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3));
+                kh.setSdt(rs.getString(4));
+                kh.setDiemthuong(rs.getInt(5));
+                HoaDon hd = new HoaDon();
+                hd.setKhachHang(kh);
+
+                getList.add(hd);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return getList;
+    }
+
+    
+    public Integer updateHoaDonKhacchHang(int Ma  ,String MaHD) {
+          int rs = 0;
+        try {
+            String sql = "UPDATE HoaDon SET idKH = ? WHERE Ma = ?";
+            Connection conn = DBConnection.openDbConnection();
+            PreparedStatement pr = conn.prepareStatement(sql);
+            pr.setInt(1, Ma);
+            pr.setString(2, MaHD);
+            rs = pr.executeUpdate();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+
+        }
+        return rs;
+    }
     public static void main(String[] args) {
         System.out.println(new HoaDonRepostory().getKhachHang("HD631353181").toString());
 //         System.out.println(new HoaDonRepostory().getListHoaDonChiTiet("HD-2055145").toString());
