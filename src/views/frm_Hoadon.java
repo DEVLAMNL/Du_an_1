@@ -113,6 +113,7 @@ public class frm_Hoadon extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Date_NgayTT = new com.toedter.calendar.JDateChooser();
+        jButton1 = new javax.swing.JButton();
         panelBorder2 = new swing.PanelBorder();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -223,6 +224,15 @@ public class frm_Hoadon extends javax.swing.JPanel {
         });
         panelBorder1.add(Date_NgayTT);
         Date_NgayTT.setBounds(510, 116, 210, 40);
+
+        jButton1.setText("Tìm kiếm");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        panelBorder1.add(jButton1);
+        jButton1.setBounds(750, 130, 100, 23);
 
         panelGradiente1.add(panelBorder1);
         panelBorder1.setBounds(10, -1, 990, 370);
@@ -367,12 +377,39 @@ public class frm_Hoadon extends javax.swing.JPanel {
 
     }//GEN-LAST:event_Date_NgayTTAncestorAdded
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        if (Date_NgayTT.getDate() != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date3 = sdf.format(Date_NgayTT.getDate());
+            if (HoaDonServiec.GetTimNTT(date3).isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Không Có Ngày Thanh Toán Nào");
+                return;
+            }
+            defaultTableModel.setRowCount(0);
+            List<HoaDonViewModel> list = HoaDonServiec.GetTimNTT(date3);
+            for (HoaDonViewModel hoaDonViewModel : list) {
+                defaultTableModel.addRow(new Object[]{
+                    hoaDonViewModel.getMa(),
+                    hoaDonViewModel.getUs().getTen(),
+                    hoaDonViewModel.getKh().getTen(),
+                    hoaDonViewModel.getTongTien(),
+                    hoaDonViewModel.getNgayTao(),
+                    hoaDonViewModel.getNgayThanhToan(),
+                    hoaDonViewModel.getTinhTrang() == 0 ? "Chưa thanh toán" : "Đã thanh toán",
+                    hoaDonViewModel.getGhiChu(),});
+
+            }
+
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser Date_NgayTT;
     private javax.swing.JComboBox<String> cbo_nam;
     private javax.swing.JComboBox<String> cbo_thang;
     private javax.swing.JComboBox<String> cbo_trangthai;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

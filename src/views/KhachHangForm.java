@@ -490,7 +490,7 @@ public class KhachHangForm extends javax.swing.JFrame {
     private void btn_chonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_chonActionPerformed
         int rowKh = tb_khachHang.getSelectedRow();
         if (rowKh < 0) {
-          Integer updateHoaDonKh = hoaDonServiec.updateHoaDonKhachHang(4, Ma);
+          Integer updateHoaDonKh = hoaDonServiec.updateHoaDonKhachHang(19, Ma);
         dispose();
         }
         Integer updateHoaDonKh = hoaDonServiec.updateHoaDonKhachHang(Integer.parseInt(tb_khachHang.getValueAt(rowKh, 0).toString()), Ma);
